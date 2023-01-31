@@ -1,0 +1,32 @@
+fragment categorySet on CategorySet {
+  code
+  name
+  start
+  end
+  subCategories {
+    code
+    name
+    ordering
+    level
+    urlKey
+    content {
+      thumbnail {
+        kind
+        filename
+        url
+      }
+    }
+    colors {
+      code
+      name
+    }
+  }
+}
+
+query getCategorySet {
+  homepageCategorySet: categorySets(
+    criteria: { section: "Home-Main-Category-Set" }
+  ) {
+    ...categorySet
+  }
+}

@@ -1,0 +1,34 @@
+fragment brandList on Brand {
+  code
+  name
+  logo {
+    kind
+    filename
+    url
+  }
+
+  bannerImage {
+    url
+    filename
+    kind
+  }
+  featuredBanner {
+    url
+    filename
+    kind
+  }
+  thumbnailBanner {
+    url
+    filename
+    kind
+  }
+}
+
+query getBrandlist($code: String) {
+  brands {
+    ...brandList
+  }
+  brandsFilter: brands(criteria: { categoryCodes: [$code] }) {
+    ...brandList
+  }
+}

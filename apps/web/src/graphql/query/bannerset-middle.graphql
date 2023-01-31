@@ -1,0 +1,28 @@
+fragment bannerSet on BannerSet {
+  code
+  name
+  start
+  end
+  banners {
+    code
+    name
+    creativeName
+    ordering
+    visible
+    status
+    variants {
+      key
+      kind
+      filename
+      url
+    }
+  }
+}
+
+query getBannerSetMiddle {
+  homepageMiddleBannerSet: bannerSets(
+    criteria: { section: "Home-Middle-Banner-Set" }
+  ) {
+    ...bannerSet
+  }
+}

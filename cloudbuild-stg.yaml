@@ -1,0 +1,32 @@
+steps:
+  # BUILD THE WEB
+  - name: 'google/cloud-sdk:slim'
+    entrypoint: 'gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        'fd-customer-facing-web',
+        '--image',
+        'asia.gcr.io/ctcd-registry/fd-customer-facing-web-staging:latest',
+        '--region',
+        'asia-southeast2',
+        '--port',
+        '3000',
+      ]
+  # BUILD THE BRIDGE API
+  - name: 'google/cloud-sdk:slim'
+    entrypoint: 'gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        'fd-customer-facing-api',
+        '--image',
+        'asia.gcr.io/ctcd-registry/fd-customer-facing-api-staging:latest',
+        '--region',
+        'asia-southeast2',
+        '--port',
+        '3001',
+      ]
+logsBucket: 'gs://ctcd-female-daily-staging_cloudbuild'

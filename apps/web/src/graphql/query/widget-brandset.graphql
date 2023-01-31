@@ -1,0 +1,39 @@
+fragment brandSet on BrandSet {
+  code
+  name
+  start
+  end
+  brands {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      filename
+      kind
+    }
+    featuredBanner {
+      url
+      filename
+      kind
+    }
+    thumbnailBanner {
+      url
+      filename
+      kind
+    }
+    ordering
+    visible
+    featured
+    logo {
+      kind
+      filename
+      url
+    }
+  }
+}
+query getWidgetBrandSet($section: String) {
+  widgetBrandSet: brandSets(criteria: { section: $section }) {
+    ...brandSet
+  }
+}

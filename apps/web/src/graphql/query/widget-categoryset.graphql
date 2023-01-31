@@ -1,0 +1,29 @@
+fragment categorySet on CategorySet {
+  code
+  name
+  start
+  end
+  subCategories {
+    code
+    name
+    ordering
+    level
+    urlKey
+    content {
+      thumbnail {
+        kind
+        filename
+        url
+      }
+    }
+    colors {
+      code
+      name
+    }
+  }
+}
+query getWidgetCategorySet($section: String) {
+  widgetCategorySet: categorySets(criteria: { section: $section }) {
+    ...categorySet
+  }
+}

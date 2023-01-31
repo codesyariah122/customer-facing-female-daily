@@ -1,0 +1,27 @@
+fragment bannerSet on BannerSet {
+  code
+  name
+  start
+  end
+  banners {
+    code
+    name
+    creativeName
+    ordering
+    visible
+    status
+    variants {
+      key
+      kind
+      filename
+      url
+    }
+  }
+}
+query getBannerSetUsp {
+  homepageUSPBannerSet: bannerSets(
+    criteria: { section: "Home-USP-Banner-Set" }
+  ) {
+    ...bannerSet
+  }
+}

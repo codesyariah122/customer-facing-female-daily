@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+// SwiperJS
+@import url('swiper/css')
+@import url('swiper/css/pagination')
+
+.swiper-pagination
+  .swiper-pagination-bullet
+    background: #DADADA
+    opacity: 1
+    &.swiper-pagination-bullet-active
+      background: #DA264D
+html
+  scroll-behavior: smooth
+
+.bg-star-rating
+  background: linear-gradient(84.74deg, #FF7996 -4.16%, #FFDBE2 41.7%)
+
+.checkbox + div > .ico-check
+  @apply hidden
+
+.checkbox + div > .ico-uncheck
+  @apply flex
+
+.checkbox:checked + div .ico-check
+  @apply flex
+
+.checkbox:checked + div .ico-uncheck
+  @apply hidden
+
+.category-filter button[aria-expanded="true"] .ico-polygon-down-grey
+  background: url('/images/ico-polygon-up-black.svg') no-repeat center center
+  width: 9px
+  height: 7px
+  display: flex
+
+.category-filter button[aria-expanded="true"] label
+  font-weight: 600
+
+.card-coupon-bg
+  background: linear-gradient(89.69deg, #FBE9ED 1.54%, rgba(251, 233, 237, 0) 63.36%)
+
+// using in component login
+.register-layout
+  @apply flex h-screen w-screen overflow-auto
+
+  .left-content-bg-img
+     background: url('/images/bg-login-selected.png') no-repeat center center
+     background-size: cover
+     @apply flex h-full w-[464px] items-center justify-center
+
+  .left-content
+    @apply flex h-full w-[464px] items-center justify-center bg-[#F7D3DC]
+
+  .right-content
+    @apply flex flex-1 flex-col items-center justify-center space-y-10
+
+    .wellcome-message-bg
+      background: url('/images/wellcome-message-img.png') no-repeat center center
+      background-size: 550px 280px
+      width: 550px
+      height: 280px
+
+  .main-button
+    @apply bg-pink-primary w-full rounded py-3 text-white
+
+// class for modal register
+.modal-register
+  @apply fixed inset-0 z-50 flex items-center justify-center
+  .backdrop
+    @apply fixed inset-0 z-10 cursor-pointer bg-black bg-opacity-60
+  .modal-content
+    @apply z-30
+    .images-bg
+      @apply h-[493px] w-[493px] object-cover
+      background: url('/images/ils_welcome_login_modal.png') no-repeat center center
+      background-size: 493px
+.modal-global
+  @apply fixed inset-0 z-50 flex items-center justify-center
+  .backdrop
+    @apply fixed inset-0 z-10 cursor-pointer bg-black bg-opacity-60
+  .modal-content
+    @apply z-30
+  .images-bg
+      background: none
+.register-otp
+  @apply flex h-[441px] w-[550px] flex-col items-center justify-between rounded bg-white p-4 text-center
+  input
+    border-bottom: solid 4px #DFE3E8
+    @apply flex w-10 text-center
+    &:focus
+      outline: none
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    &:not([value=""]):not(:focus):invalid
+      border-color: #49A09D
+.radio-toggle
+  .dot
+    width: 16px
+    height: 16px
+  input:checked ~ .dot
+    transform: translateX(100%)
+  .wrapper
+    background-color: #dadada
+    width: 40px
+    height: 24px
+  input:checked ~ .wrappe
+    background-color: #48bb78
+.my-order-tab
+  @apply my-4 flex justify-between border-b text-sm text-gray-500
+  button
+    @apply inline-block  py-2 text-gray-500 hover:border-teal-500 sm:px-8 relative
+.make-center
+  @apply flex justify-center items-center
+// using in page notification
+
+// help-center
+
+.help-center
+  header main,footer main
+    @apply mx-auto flex justify-between sm:px-12 xl:px-4  xl:container 2xl:px-8
+  footer main > header > ul > li
+    @apply flex items-center font-semibold whitespace-nowrap
+  footer main > section > ul > li
+    @apply font-semibold flex-1 whitespace-nowrap
+    ul
+      @apply font-normal w-min text-sm
+      li
+        @apply cursor-pointer hover:text-pink-primary py-2
+  main
+    h3
+      @apply text-xl font-medium
+
+.skeleton
+  display: inline-block
+  overflow: hidden
+  position: relative
+  background-color: #DDDBDD
+  opacity: 0.5
+  &::after
+    content: ''
+    position: absolute
+    inset:0
+    transform: translateX(-100%)
+    background-image: linear-gradient(90deg, rgba(#fff, 0) 0, rgba(#fff, 0.2) 20%, rgba(#fff, 0.5) 60%, rgba(#fff, 0))
+    animation: skeleton-loading 2s infinite
+@keyframes skeleton-loading
+  100%
+    transform: translateX(100%)
+.lightscroll::-webkit-scrollbar
+  width: 5px
+.lightscroll::-webkit-scrollbar-track
+  background: #fff
+.lightscroll::-webkit-scrollbar-thumb
+  background: #E4E4E7
+  &:hover
+    background: #E4E4E7

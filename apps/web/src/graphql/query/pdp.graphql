@@ -1,0 +1,271 @@
+fragment productPdp on Product {
+  code
+  name
+  memberReviewsUrl
+  description
+  weight
+  favorites
+  stock
+  max
+  youtube
+  ratingAverage
+  reviewCount
+  orderRatingAverage
+  orderReviewCount
+  userRecommendationPercentage
+  length
+  width
+  height
+  merchantSku
+  sold
+  urlKey
+  preOrderDuration
+  categoryLv1
+  categoryLv2
+  categoryLv3
+  categoryLv4
+  categoryLv5
+  installationAreas {
+    id
+    nameInd
+    nameEng
+  }
+  children {
+    code
+    name
+    description
+    weight
+    favorites
+    stock
+    max
+    youtube
+    ratingAverage
+    reviewCount
+    orderRatingAverage
+    orderReviewCount
+    userRecommendationPercentage
+    medias {
+      kind
+      filename
+      url
+    }
+    attributes {
+      kind
+      name
+      value
+      variance
+    }
+    primaryCategory {
+      id
+      code
+      name
+    }
+    shipping {
+      name
+      value
+    }
+    brand {
+      code
+      name
+      creativeName
+      bannerImage {
+        url
+        kind
+        filename
+      }
+      featuredBanner {
+        url
+        kind
+        filename
+      }
+      logo {
+        url
+        kind
+        filename
+      }
+      thumbnailBanner {
+        url
+        kind
+        filename
+      }
+    }
+    finalPrice {
+      promo
+      setoko
+      stock
+      maxPurchase
+    }
+    flashSale
+    flashSaleDescription {
+      campaignTitle
+      sessions {
+        start
+        end
+      }
+      sold
+      available
+      note
+    }
+    installationAreas {
+      id
+      nameInd
+      nameEng
+    }
+    installationService
+    installation {
+      code
+      name
+      description
+      active
+      cities {
+        id
+        name
+      }
+      provinces {
+        id
+        name
+      }
+      price {
+        setoko
+      }
+    }
+    productAward {
+      id
+      fdId
+      code
+      label
+      image
+      position
+    }
+  }
+  primaryCategory {
+    id
+    code
+    name
+  }
+  medias {
+    kind
+    filename
+    url
+  }
+  attributes {
+    kind
+    name
+    value
+    variance
+  }
+  merchant {
+    code
+    name
+    store
+    sellerType
+    merchantType
+    filterType
+    productSold
+    profilePicture {
+      url
+      kind
+      filename
+    }
+    active
+    operationalStatus
+    operationalInfo {
+      titleId
+      titleEn
+      labelId
+      labelEn
+      descEn
+      descId
+    }
+  }
+  brand {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      kind
+      filename
+    }
+    featuredBanner {
+      url
+      kind
+      filename
+    }
+    logo {
+      url
+      kind
+      filename
+    }
+    thumbnailBanner {
+      url
+      kind
+      filename
+    }
+    urlKey
+    useExternalUrl
+    externalUrl
+  }
+  finalPrice {
+    promo
+    setoko
+    stock
+    maxPurchase
+  }
+  flashSale
+  flashSaleDescription {
+    code
+    productCode
+    campaignCode
+    campaignTitle
+    campaignStart
+    campaignEnd
+    sessions {
+      start
+      end
+    }
+    status
+    normal
+    normalDiscount
+    setoko
+    promo
+    promoDiscount
+    stock
+    sold
+    available
+    maxPurchase
+    note
+  }
+  installationService
+  installation {
+    code
+    name
+    description
+    active
+    cities {
+      id
+      name
+    }
+    provinces {
+      id
+      name
+    }
+    price {
+      setoko
+    }
+  }
+  productAward {
+    id
+    fdId
+    code
+    label
+    image
+    position
+  }
+}
+
+query getPdp($code: String) {
+  pdp: products(criteria: { code: $code }) {
+    ...productPdp
+  }
+}

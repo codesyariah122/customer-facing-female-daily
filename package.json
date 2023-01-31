@@ -1,0 +1,38 @@
+{
+  "name": "ctcd-frontend",
+  "description": "FemaleDaily Customer Facing Project Starter",
+  "author": "CTCD Engineering <ctcd-engineering@ctcorpdigital.com>",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "dotenv -- turbo run build",
+    "clean": "turbo run clean",
+    "clean:deep": "turbo run clean && bash clean-up.sh",
+    "dev": "dotenv -- turbo run dev --parallel",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "codegen": "dotenv -- turbo run codegen",
+    "lint": "turbo run lint",
+    "start": "turbo run start",
+    "test": "turbo run test",
+    "types": "turbo run types"
+  },
+  "dependencies": {
+    "dotenv-cli": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-ctcd": "*",
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "latest",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@1.22.15",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  }
+}

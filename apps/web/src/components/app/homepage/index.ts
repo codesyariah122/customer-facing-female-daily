@@ -1,0 +1,13 @@
+export { default as Blog } from './Blog';
+export { default as MiddleBannerCarousel } from './MiddleBannerCarousel';
+export { default as Coupon } from './Coupon';
+export { default as Flashsale } from './Flashsale';
+export { default as HeroSlider } from './HeroSlider';
+export { default as Highlight } from './Highlight';
+export { default as PopularBrands } from './PopularBrands';
+export { default as ProductListHighlight } from './ProductListHighlight';
+export { default as ProductRecommendation } from './ProductRecommendation';
+export { default as PromoNotif } from './PromoNotif';
+export { default as ShopByCategories } from './ShopByCategories';
+export { default as ProductMatches } from './ProductMatches';
+export { default as FlashsaleTimer } from './FlashsaleTimer';

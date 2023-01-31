@@ -1,0 +1,165 @@
+details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 80%;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 300;
+  list-style: none;
+}
+
+details summary:after {
+  content: url('../icon/svg/arrow-right.svg');
+  color: black;
+  position: absolute;
+  line-height: 0;
+  right: 0;
+  margin-right: -2rem;
+  margin-top: -.3rem;
+  border-radius: 59%;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+
+details[open] summary:after {
+  transform: rotate(90deg);
+  font-size: 3rem;
+}
+details summary {
+  outline: 0;
+}
+details p {
+  /* font-size: 0.95rem; */
+  margin: 0 0 1rem;
+  padding-top: 0;
+  width: 80%;
+}
+@media screen and (max-width: 745px) {
+  details[open] summary ~ * {
+    animation: open 0.3s ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary {
+    width: 80%;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 300;
+    list-style: none;
+  }
+
+  details summary:after {
+    content: url('../icon/svg/arrow-right.svg');
+    color: black;
+    position: absolute;
+    line-height: 0;
+    right: 0;
+    margin-right: -2rem;
+    margin-top: -.3rem;
+    border-radius: 59%;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+  }
+
+  details[open] summary:after {
+    transform: rotate(90deg);
+    font-size: 3rem;
+  }
+  details summary {
+    outline: 0;
+  }
+  details p {
+    /* font-size: 0.95rem; */
+    margin: 0 0 1rem;
+    padding-top: 0;
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  details[open] summary ~ * {
+    /* animation: open 0.3s ease-in-out; */
+    animation: sweep .5s ease-in-out;
+  }
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary {
+    width: 67vw;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    /* background-color: gray; */
+  }
+
+  details summary:after {
+    content: url('../icon/svg/arrow-right.svg');
+    color: #000;
+    position: absolute;
+    line-height: 0;
+    right: 0;
+    margin-right: .5rem;
+    margin-top: 0.3rem;
+    border-radius: 59%;
+    font-weight: 200;
+    transform-origin: center;
+    transition: 200ms linear;
+  }
+
+  details[open] summary:after {
+    transform: rotate(90deg);
+    font-size: 3rem;
+  }
+  details summary {
+    outline: 0;
+  }
+  details p {
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+    padding-top: 0;
+  }
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; transform: translateX(-10px)}
+  100%  {opacity: 1; transform: translateX(0)}
+}

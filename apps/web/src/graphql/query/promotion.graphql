@@ -1,0 +1,115 @@
+fragment promotionTag on PromotionTag {
+    code
+    name
+}
+
+fragment productPromotion on Product {
+    code
+    name
+    description
+    weight
+    stock
+    finalPrice {
+        promo
+        setoko
+        stock
+    }
+    medias {
+        kind
+        filename
+        url
+    }
+    attributes {
+        kind
+    }
+    merchant{
+        code
+        active
+    }
+    primaryCategory{
+        code
+        name
+    }
+    brand{
+        code
+        name
+        creativeName
+        bannerImage{
+            url
+            kind
+            filename
+        }
+        featuredBanner{
+            url
+            kind
+            filename
+        }
+        logo{
+            url
+            kind
+            filename
+        }
+        thumbnailBanner{
+            url
+            kind
+            filename
+        }
+
+    }
+    flashSale
+    flashSaleDescription{
+        normal
+        promo
+        promoDiscount
+        stock
+    }
+    categoryLv1
+    categoryLv2
+    categoryLv3
+    categoryLv4
+    categoryLv5
+    warehouses {
+      code
+      city
+    }
+    preOrderDuration
+}
+
+fragment promotionPromotion on Promotion {
+    code
+    name
+    title
+    bannerImage{
+        kind
+        filename
+        url
+    }
+    start
+    end
+    minimumTransaction
+    termConditions{
+        en
+        id
+    }
+    benefitType
+    coupons{
+        code
+    }
+    tags{
+        code
+    }
+}
+
+query getPromotion {
+    promotionTag: promotionTags(offset: 0 , limit: 20) {
+    ...promotionTag
+    }
+
+    promotion: promotions(criteria: { tagCode: "", key: "", sort: "LATEST_DEALS", categoryCode : "", option: "WITH_COUPONS" }, offset: 0 , limit :10) {
+    ...promotionPromotion
+    }
+
+    product: promotionProducts(code:"20220812080156440483", offset: 0 , limit :10){
+        ...productPromotion
+    }
+}

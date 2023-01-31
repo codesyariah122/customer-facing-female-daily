@@ -1,0 +1,256 @@
+fragment bannerSetPCP on BannerSet {
+  code
+  name
+  start
+  end
+  banners {
+    code
+    name
+    creativeName
+    ordering
+    visible
+    status
+    variants {
+      key
+      kind
+      filename
+      url
+    }
+  }
+}
+fragment productSetPcp on ProductSet {
+  code
+  name
+  urlKey
+  status
+  start
+  end
+  products {
+    code
+    name
+    urlKey
+    ordering
+    description
+    weight
+    length
+    width
+    height
+    digital
+    stock
+    finalPrice {
+      promo
+      setoko
+      stock
+    }
+    medias {
+      kind
+      filename
+      url
+    }
+    attributes {
+      kind
+    }
+    merchant {
+      code
+      status
+      store
+      operationalOpen
+      operationalStatus
+      active
+    }
+    primaryCategory {
+      code
+      name
+    }
+    brand {
+      code
+      name
+      creativeName
+      bannerImage {
+        url
+        kind
+        filename
+      }
+      featuredBanner {
+        url
+        kind
+        filename
+      }
+      logo {
+        url
+        kind
+        filename
+      }
+      thumbnailBanner {
+        url
+        kind
+        filename
+      }
+    }
+    flashSale
+    flashSaleDescription {
+      normal
+      promo
+      promoDiscount
+      stock
+    }
+    categoryLv1
+    categoryLv2
+    categoryLv3
+    categoryLv4
+    categoryLv5
+    warehouses {
+      code
+      city
+    }
+    preOrderDuration
+    reviewCount
+    ratingAverage
+    productInfo {
+      productAvailability
+    }
+    productAward {
+      id
+      fdId
+      code
+      label
+      image
+      position
+    }
+  }
+}
+fragment brandSet on BrandSet {
+  code
+  name
+  start
+  end
+  brands {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      filename
+      kind
+    }
+    featuredBanner {
+      url
+      filename
+      kind
+    }
+    thumbnailBanner {
+      url
+      filename
+      kind
+    }
+    ordering
+    visible
+    featured
+    logo {
+      kind
+      filename
+      url
+    }
+  }
+}
+fragment categorySetPCP on CategorySet {
+  code
+  name
+  start
+  end
+  subCategories {
+    code
+    name
+    ordering
+    level
+    urlKey
+    content {
+      thumbnail {
+        kind
+        filename
+        url
+      }
+    }
+    colors {
+      code
+      name
+    }
+  }
+}
+fragment promotion on Promotion {
+  code
+  name
+  title
+  urlKey
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+}
+query getPcp($code: String) {
+  pcpMainBannerSet: bannerSets(
+    criteria: { section: "PCP-Main-Banner-Set", categoryCode: $code }
+  ) {
+    ...bannerSetPCP
+  }
+  pcpCategorySet: categorySets(
+    criteria: { section: "PCP-Category-Set", categoryCode: $code }
+  ) {
+    ...categorySetPCP
+  }
+  pcpNewRecommendationProductSet: productSets(
+    criteria: { section: "PCP-New-Recommendation-Set", categoryCode: $code }
+  ) {
+    ...productSetPcp
+  }
+  pcpTrendingBannerSet: bannerSets(
+    criteria: { section: "PCP-Trending-Banner-Set", categoryCode: $code }
+  ) {
+    ...bannerSetPCP
+  }
+  pcpPopularBrandSet: brandSets(
+    criteria: { section: "PCP-Popular-Brand-Set", categoryCode: $code }
+  ) {
+    ...brandSet
+  }
+  pcpOffersBannerSet: bannerSets(
+    criteria: { section: "PCP-Offers-Banner-Set", categoryCode: $code }
+  ) {
+    ...bannerSetPCP
+  }
+  pcpPromotions: promotions(
+    criteria: {
+      tagCode: ""
+      key: ""
+      sort: "LATEST_DEALS"
+      categoryCode: $code
+      option: "WITH_COUPONS"
+    }
+    offset: 0
+    limit: 10
+  ) {
+    ...promotion
+  }
+  pcpForYouProductSet: productSets(
+    criteria: { section: "PCP-For-You-Recommendation-Set", categoryCode: $code }
+  ) {
+    ...productSetPcp
+  }
+  pcpSuperProductSet: productSets(
+    criteria: { section: "PCP-Super-Product-List-Set", categoryCode: $code }
+  ) {
+    ...productSetPcp
+  }
+}

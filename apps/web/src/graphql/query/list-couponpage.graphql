@@ -1,0 +1,53 @@
+fragment promotionTag on PromotionTag {
+  code
+  name
+}
+fragment promo on Promotion {
+  code
+  name
+  title
+  urlKey
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+  tags {
+    code
+  }
+}
+query getListCouponPage(
+  $tagCode: String
+  $key: String
+  $promoSort: String
+  $categoryCode: String
+  $option: String
+) {
+  promotionTag: promotionTags(offset: 0) {
+    ...promotionTag
+  }
+  promotion: promotions(
+    criteria: {
+      tagCode: $tagCode
+      key: $key
+      sort: $promoSort
+      categoryCode: $categoryCode
+      option: "WITH_COUPONS"
+    }
+    offset: 0
+    limit: 9999999
+  ) {
+    ...promo
+  }
+}

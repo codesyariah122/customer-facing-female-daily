@@ -1,0 +1,37 @@
+fragment promotionMyCouponUser on Promotion {
+  code
+  name
+  title
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+}
+
+query getMyCouponUser($sort: String) {
+  promotion: coupons(
+    criteria: {
+      tagCode: ""
+      key: ""
+      sort: $sort
+      categoryCode: ""
+      option: "WITH_COUPONS"
+    }
+    offset: 0
+    limit: 9999999
+  ) {
+    ...promotionMyCouponUser
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="Help Center" />
+    <meta name="author" content="Female Daily" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="assets/css/new.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+      @media screen and (max-width: 745px) {
+        .lead__calls--mobile {
+          display: block;
+        }
+        .lead__calls--desktop {
+          display: none;
+        }
+        .subtopic-mobile {
+          display: block;
+        }
+      }
+      @media(min-width: 992px) {
+        .main__content{
+          height: 100vh;
+          margin-bottom: 23rem;
+        }
+        .lead__calls--desktop {
+          display: block;
+        }
+        .lead__calls--mobile {
+          display: none;
+        }
+        .subtopic-mobile{
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="container__header">
+      <div class="container__subheader">
+        <div class="header-mobile">
+          <div class="absolute-left">
+            <a href=""><i class="fa fa-angle-left"></i></a>
+          </div>
+          <div class="text-2xl">Help Center</div>
+        </div>
+        <!-- Header content loaded -->
+        <div class="header-desktop" id="header-content"></div>
+      </div>
+    </div>
+
+    <div class="main__content md:mt-44 mt-36">
+      <!-- Breadcrumb loaded -->
+      <div id="breadcrumb-nav" class="flex md:ml-48 lg:justify-center sm:justify-center justify-center md:place-content-center md:space-x-0 md:mb-6"></div>
+
+      <div class="container content-center py-12 md:mx-auto">
+        <div class="text-center">
+          <div role="status" class="content__loading">
+              <svg class="inline mr-2 w-36 h-36 text-gray-200 animate-spin dark:text-gray-600 fill-red-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+              </svg>
+              <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <div class="firsts__content grid grid-cols-3 gap-4 justify-start">
+
+          <div class="topic__content-desktop md:ml-36">
+            <div class="flex justify-start md:ml-7 ml-5">
+              <div class="place-items-start">
+                <h2 class="text-3xl font-bold">Topik</h2>
+              </div>
+            </div>
+            <!-- Left Menu Topic -->
+            <div class="w-70 shadow-none bg-transparent px-1 absolute">
+              <aside class="h-full side-nav">
+                <ul id="link-menu-topik" class="relative">
+                  <li class="relative mb-3 left-menu" data-menu="account" data-heading="Account">
+                    <a onclick="redirectPage('delivery')" class="flex items-center text-1xl py-4 px-6 h-12  text-gray-700 text-ellipsis font-semibold whitespace-nowrap rounded cursor-pointer hover:text-indigo-500" data-mdb-ripple="true" data-mdb-ripple-color="dark">Account & Membership</a>
+                  </li>
+                  <li class="relative mb-3 left-menu" data-menu="order" data-heading="Troubleshoot">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Troubleshoot</a>
+                  </li>
+                  <li class="relative mb-3 left-menu" data-menu="return-refund" data-heading="My Order">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">My Order</a>
+                  </li>
+                  <li class="relative mb-3 left-menu" data-menu="return-refund" data-heading="Return & Refund">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500" data-mdb-ripple="true" data-mdb-ripple-color="dark">Return & Refund</a>
+                  </li>
+                  <li class="relative mb-3 left-menu" data-menu="delivery" data-heading="Delivery">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold active-left-menu text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Delivery</a>
+                  </li>
+                  <li class="relative mb-3 left-menu" data-menu="product-service" data-heading="Product And Service">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Product and Services</a>
+                  </li>
+                  <li class="relative left-menu mb-3" data-menu="settings" data-heading="Store Setting">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Promotions</a>
+                  </li>
+                  <li class="relative left-menu mb-3" data-menu="store-performance" data-heading="Store Performance">
+                    <a onclick="redirectPage('delivery')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Payment</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+            <!-- End Left Menu Topic -->
+          </div>
+
+          <div class="col-span-2 gap-x-4">
+            <div class="flex justify-start ml-7 sm:ml-5">
+              <div class="shrink-0 md:w-96">
+                <!-- Heading content loaded -->
+                <h2 class="text-3xl font-bold capitalize w-full" id="param-title-heading"></h2>
+              </div>
+            </div>
+            <div class="md:w-96 shadow-none bg-transparent px-1 absolute">
+              <!-- Right Menu Active Topic Content -->
+              <ul class="relative" id="sub-menu-elem"></ul>
+              <ul class="relative" id="question-sub-topic"></ul>
+              <!-- End Right Menu Active Topic -->
+            </div>
+            <div id="topic-contents" class="w-80 md:-ml-36 -ml-16 h-36 mb-36"></div>
+          </div>
+
+           <!-- lead calls mobile -->
+          <div class="col-span-full lead__calls--mobile mt-36 -ml-12"></div>
+        </div>
+      </div>
+
+      <!-- lead calls desktop -->
+      <div class="container lead__calls--desktop mt-36 w-screen"></div>
+    </div>
+
+    <!-- load footer content -->
+    <div id="footer-content"></div>
+
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="assets/partials.js"></script>
+    <script src="assets/script/data.js"></script>
+    <script src="assets/script/functions.js"></script>
+    <script src="assets/script/app.js"></script>
+  </body>
+</html>

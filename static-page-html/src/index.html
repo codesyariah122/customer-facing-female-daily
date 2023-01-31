@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="barayuda.gautama@ctcorpdigital.com" />
+    <title>Static HTML with Vite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        @apply font-medium text-[#646cff];
+      }
+      a:hover {
+        @apply text-[#535bf2];
+      }
+    </style>
+  </head>
+
+  <body
+    class="m-0 flex min-h-screen min-w-[320px] place-items-center bg-[#ffffff] font-inter text-base font-normal text-[#213547] dark:bg-[#242424] dark:text-transparent-white"
+  >
+    <div
+      class="mx-auto flex max-w-[1280px] flex-col items-center justify-center p-8"
+    >
+      <div class="flex flex-row items-center">
+        <a href="https://vitejs.dev" target="_blank">
+          <img
+            src="/vite.svg"
+            class="h-24 p-5 will-change-[filter] hover:drop-shadow-logo"
+            alt="Vite logo"
+          />
+        </a>
+        <p class="text-4xl font-extrabold text-white">+</p>
+        <a href="https://tailwindcss.com/" target="_blank">
+          <img
+            src="/tailwindcss.svg"
+            class="h-18 w-auto p-5 will-change-[filter] hover:drop-shadow-logo-tw"
+            alt="TailwindCSS logo"
+          />
+        </a>
+      </div>
+      <h1
+        class="my-12 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text p-4 text-6xl text-transparent"
+      >
+        Hello CTCD Team!
+      </h1>
+      <p class="text-white/50">
+        Starter untuk membuat Static Page HTML dengan HMR
+      </p>
+    </div>
+  </body>
+</html>

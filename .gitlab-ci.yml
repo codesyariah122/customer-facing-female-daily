@@ -1,0 +1,250 @@
+# FEMALE DAILY - CUSTOMER FACING
+image: docker:20.10.16 # don't change, depend on resource
+services:
+  - docker:20.10.16-dind # don't change, depend on resource
+variables:
+  # DEVELOPMENT
+  GCLOUD_PROJECT_DEV: ctcd-female-daily-development
+  IMAGE_WEB_DEV: asia.gcr.io/ctcd-registry/fd-customer-facing-web-development
+  IMAGE_WEB_TAG_DEV: $IMAGE_WEB_DEV:$CI_COMMIT_TAG
+  IMAGE_API_DEV: asia.gcr.io/ctcd-registry/fd-customer-facing-api-development
+  IMAGE_API_TAG_DEV: $IMAGE_API_DEV:$CI_COMMIT_TAG
+  # STAGING
+  GCLOUD_PROJECT_STG: ctcd-female-daily-staging
+  IMAGE_WEB_STG: asia.gcr.io/ctcd-registry/fd-customer-facing-web-staging
+  IMAGE_WEB_TAG_STG: $IMAGE_WEB_STG:$CI_COMMIT_TAG
+  IMAGE_API_STG: asia.gcr.io/ctcd-registry/fd-customer-facing-api-staging
+  IMAGE_API_TAG_STG: $IMAGE_API_STG:$CI_COMMIT_TAG
+  # PRODUCTION
+  GCLOUD_PROJECT_PROD: ctcd-female-daily-production
+  IMAGE_WEB_PROD: asia.gcr.io/ctcd-registry/fd-customer-facing-web-production
+  IMAGE_WEB_TAG_PROD: $IMAGE_WEB_PROD:$CI_COMMIT_TAG
+  IMAGE_API_PROD: asia.gcr.io/ctcd-registry/fd-customer-facing-api-production
+  IMAGE_API_TAG_PROD: $IMAGE_API_PROD:$CI_COMMIT_TAG
+  # When you use the dind service, you must instruct Docker to talk with
+  # the daemon started inside of the service. The daemon is available
+  # with a network connection instead of the default
+  # /var/run/docker.sock socket. Docker 19.03 does this automatically
+  # by setting the DOCKER_HOST in
+  # https://github.com/docker-library/docker/blob/d45051476babc297257df490d22cbd806f1b11e4/19.03/docker-entrypoint.sh#L23-L29
+  #
+  # The 'docker' hostname is the alias of the service container as described at
+  # https://docs.gitlab.com/ee/ci/services/#accessing-the-services.
+  #
+  # Specify to Docker where to create the certificates. Docker
+  # creates them automatically on boot, and creates
+  # `/certs/client` to share between the service and job
+  # container, thanks to volume mount from config.toml
+  DOCKER_TLS_CERTDIR: '/certs' # don't change, depend on resource
+  GIT_DEPTH: 0
+# Build caching for NextJS cache, https://nextjs.org/docs/advanced-features/ci-build-caching
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
+stages:
+  # CLOUD RUN STAGES - DEV
+  - cloud-package-gcpdev
+  - cloud-build-gcpdev
+  - cloud-deploy-gcpdev
+  # CLOUD RUN STAGES - STG
+  - cloud-package-gcpstg
+  - cloud-build-gcpstg
+  - cloud-deploy-gcpstg
+  # CLOUD RUN STAGES - PROD
+  - cloud-package-gcpprod
+  - cloud-build-gcpprod
+  - cloud-deploy-gcpprod
+# ==========================================================
+# DEVELOPMENT: pipeline config for DEV Env
+# ==========================================================
+# STEP [1] - PREPARING ENVIRONMENT CHECKING - DEVELOPMENT
+cloud-package-gcpdev:
+  stage: cloud-package-gcpdev
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpdev$/'
+  variables:
+    GIT_STRATEGY: clone
+  script:
+    - echo "Preparing package..."
+    - echo "Deploying tag $CI_COMMIT_TAG with commit $CI_COMMIT_SHORT_SHA"
+    - whoami
+# STEP [2] - BUILD + PUSH - DEVELOPMENT
+cloud-build-gcpdev:
+  stage: cloud-build-gcpdev
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpdev$/'
+  cache:
+    - key: $CI_COMMIT_SHORT_SHA
+      policy: push
+      paths:
+        - target
+  before_script:
+    - docker info
+    - echo $Z_GCP_ENV_FILE_DEV
+    - cp $Z_GCP_ENV_FILE_DEV .env
+    - echo $Z_GCP_GCR_KEY > gcr-service-key.json
+    - docker login -u _json_key --password-stdin https://asia.gcr.io < gcr-service-key.json
+  script:
+    - COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml build --parallel
+    # TAGGING THE IMAGES
+    - docker tag fd-customer-facing_web $IMAGE_WEB_DEV:latest
+    - docker tag fd-customer-facing_web $IMAGE_WEB_TAG_DEV
+    - docker tag fd-customer-facing_api $IMAGE_API_DEV:latest
+    - docker tag fd-customer-facing_api $IMAGE_API_TAG_DEV
+    # PUSH ALL DOCKER IMAGES WITH TAGS
+    - docker push $IMAGE_WEB_DEV --all-tags
+    - docker push $IMAGE_API_DEV --all-tags
+    # DELETE LOCAL IMAGE
+    - docker rmi $IMAGE_WEB_TAG_DEV $IMAGE_WEB_DEV:latest
+    - docker rmi $IMAGE_API_TAG_DEV $IMAGE_API_DEV:latest
+  after_script:
+    - ls -a
+# STEP [3] - DEPLOY - DEVELOPMENT
+cloud-deploy-gcpdev:
+  stage: cloud-deploy-gcpdev
+  image: google/cloud-sdk:slim
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpdev$/'
+  before_script:
+    - echo $Z_GCP_RUN_DEV_KEY
+    - echo $Z_GCP_RUN_DEV_KEY > gcloud-service-key.json
+  script:
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCLOUD_PROJECT_DEV
+    - gcloud builds submit . --config=cloudbuild-dev.yaml
+# ==========================================================
+# STAGING: pipeline config for STG Env
+# ==========================================================
+# STEP [1] - PREPARING ENVIRONMENT CHECKING - STAGING
+cloud-package-gcpstg:
+  stage: cloud-package-gcpstg
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpstg$/'
+  variables:
+    GIT_STRATEGY: clone
+  script:
+    - echo "Preparing package..."
+    - echo "Deploying tag $CI_COMMIT_TAG with commit $CI_COMMIT_SHORT_SHA"
+    - whoami
+# STEP [2] - BUILD + PUSH - STAGING
+cloud-build-gcpstg:
+  stage: cloud-build-gcpstg
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpstg$/'
+  cache:
+    - key: $CI_COMMIT_SHORT_SHA
+      policy: push
+      paths:
+        - target
+  before_script:
+    - docker info
+    - echo $Z_GCP_ENV_FILE_STG
+    - cp $Z_GCP_ENV_FILE_STG .env
+    - echo $Z_GCP_GCR_KEY > gcr-service-key.json
+    - docker login -u _json_key --password-stdin https://asia.gcr.io < gcr-service-key.json
+  script:
+    - COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml build --parallel
+    # TAGGING THE IMAGES
+    - docker tag fd-customer-facing_web $IMAGE_WEB_STG:latest
+    - docker tag fd-customer-facing_web $IMAGE_WEB_TAG_STG
+    - docker tag fd-customer-facing_api $IMAGE_API_STG:latest
+    - docker tag fd-customer-facing_api $IMAGE_API_TAG_STG
+    # PUSH ALL DOCKER IMAGES WITH TAGS
+    - docker push $IMAGE_WEB_STG --all-tags
+    - docker push $IMAGE_API_STG --all-tags
+    # DELETE LOCAL IMAGE
+    - docker rmi $IMAGE_WEB_TAG_STG $IMAGE_WEB_STG:latest
+    - docker rmi $IMAGE_API_TAG_STG $IMAGE_API_STG:latest
+  after_script:
+    - ls -a
+# STEP [3] - DEPLOY - STAGING
+cloud-deploy-gcpstg:
+  stage: cloud-deploy-gcpstg
+  image: google/cloud-sdk:slim
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpstg$/'
+  before_script:
+    - echo $Z_GCP_RUN_STG_KEY
+    - echo $Z_GCP_RUN_STG_KEY > gcloud-service-key.json
+  script:
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCLOUD_PROJECT_STG
+    - gcloud builds submit . --config=cloudbuild-stg.yaml
+# ==========================================================
+# PRODUCTION: pipeline config for PROD Env
+# ==========================================================
+# STEP [1] - PREPARING ENVIRONMENT CHECKING - PRODUCTION
+cloud-package-gcpprod:
+  stage: cloud-package-gcpprod
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpprod$/'
+  variables:
+    GIT_STRATEGY: clone
+  script:
+    - echo "Preparing package..."
+    - echo "Deploying tag $CI_COMMIT_TAG with commit $CI_COMMIT_SHORT_SHA"
+    - whoami
+# STEP [2] - BUILD + PUSH - PRODUCTION
+cloud-build-gcpprod:
+  stage: cloud-build-gcpprod
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpprod$/'
+  cache:
+    - key: $CI_COMMIT_SHORT_SHA
+      policy: push
+      paths:
+        - target
+  before_script:
+    - docker info
+    - echo $Z_GCP_ENV_FILE_PROD
+    - cp $Z_GCP_ENV_FILE_PROD .env
+    - echo $Z_GCP_GCR_KEY > gcr-service-key.json
+    - docker login -u _json_key --password-stdin https://asia.gcr.io < gcr-service-key.json
+  script:
+    - COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f ./docker-compose.yml build --parallel
+    # TAGGING THE IMAGES
+    - docker tag fd-customer-facing_web $IMAGE_WEB_PROD:latest
+    - docker tag fd-customer-facing_web $IMAGE_WEB_TAG_PROD
+    - docker tag fd-customer-facing_api $IMAGE_API_PROD:latest
+    - docker tag fd-customer-facing_api $IMAGE_API_TAG_PROD
+    # PUSH ALL DOCKER IMAGES WITH TAGS
+    - docker push $IMAGE_WEB_PROD --all-tags
+    - docker push $IMAGE_API_PROD --all-tags
+    # DELETE LOCAL IMAGE
+    - docker rmi $IMAGE_WEB_TAG_PROD $IMAGE_WEB_PROD:latest
+    - docker rmi $IMAGE_API_TAG_PROD $IMAGE_API_PROD:latest
+  after_script:
+    - ls -a
+# STEP [3] - DEPLOY - PRODUCTION
+cloud-deploy-gcpprod:
+  stage: cloud-deploy-gcpprod
+  image: google/cloud-sdk:slim
+  tags:
+    - gitlab-runner-fe
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^\w+-\d+-gcpprod$/'
+  before_script:
+    - echo $Z_GCP_RUN_PROD_KEY
+    - echo $Z_GCP_RUN_PROD_KEY > gcloud-service-key.json
+  script:
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCLOUD_PROJECT_PROD
+    - gcloud builds submit . --config=cloudbuild-prod.yaml

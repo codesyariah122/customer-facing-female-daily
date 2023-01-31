@@ -1,0 +1,98 @@
+fragment productSet on ProductSet {
+  code
+  name
+  urlKey
+  status
+  start
+  end
+  products {
+    code
+    name
+    urlKey
+    ordering
+    description
+    weight
+    length
+    width
+    height
+    digital
+    stock
+    finalPrice {
+      promo
+      setoko
+      stock
+    }
+    medias {
+      kind
+      filename
+      url
+    }
+    attributes {
+      kind
+    }
+    merchant {
+      code
+      status
+      store
+      operationalOpen
+      operationalStatus
+      active
+    }
+    primaryCategory {
+      code
+      name
+    }
+    brand {
+      code
+      name
+      creativeName
+      bannerImage {
+        url
+        kind
+        filename
+      }
+      featuredBanner {
+        url
+        kind
+        filename
+      }
+      logo {
+        url
+        kind
+        filename
+      }
+      thumbnailBanner {
+        url
+        kind
+        filename
+      }
+    }
+    flashSale
+    flashSaleDescription {
+      normal
+      promo
+      promoDiscount
+      stock
+    }
+    categoryLv1
+    categoryLv2
+    categoryLv3
+    categoryLv4
+    categoryLv5
+    warehouses {
+      code
+      city
+    }
+    preOrderDuration
+    reviewCount
+    ratingAverage
+    productInfo {
+      productAvailability
+    }
+  }
+}
+query getWidgetProductSet($section: String) {
+  widgetProductSet: productSets(criteria: { section: $section }) {
+    ...productSet
+  }
+}

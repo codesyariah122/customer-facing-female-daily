@@ -1,0 +1,98 @@
+<footer class="content__footer-desktop w-screen">
+  <div class="container__copyright overflow-y-hidden bottom-0 inset-x-0">
+    <div class="flex justify-between align-middle">
+      <div class="flex-1">
+        <span id="copyright-desktop" class="text-1xl"></span>
+      </div>
+      <div class="shrink-0 w-80 h-14 -mt-3">
+        <div class="flex justify-end align-middle space-x-2">
+          <div>
+            <img class="w-16" src="../assets/images/about-fd/appstore.svg">
+          </div>
+          <div>
+            <img class="w-16" src="../assets/images/about-fd/playstore.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="shrink-0 w-52 -mt-3 ml-8">
+        <div class="flex justify-start align-middle space-x-0">
+          <div>
+            <img class="icon-social-media mt-5 max-w-none ring-0 w-10" src="../assets/images/about-fd/instagram.svg">
+          </div>
+          <div>
+            <img class="icon-social-media mt-5 max-w-none ring-0 w-10" src="../assets/images/about-fd/twitter.svg">
+          </div>
+          <div>
+            <img class="icon-social-media mt-5 max-w-none ring-0 w-10 w-8" src="../assets/images/about-fd/fb.svg">
+          </div>
+          <div>
+            <img class="icon-social-media mt-5 max-w-none ring-0 w-10" src="../assets/images/about-fd/youtube.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<footer class="content__footer-mobile overflow-x-hidden relative w-full h-screen">
+  <div class="container__copyright md:inset-x-0 md:bottom-0 bottom-0 inset-x-0">
+    <div class="grid grid-cols-2 gap-x-4">
+      <div class="col-span-full">
+        <div class="flex justify-start ml-12 space-x-4 vector__app">
+          <div>
+            <img class="md:w-16 lg:w-16 w-50" src="../assets/images/about-fd/appstore.svg">
+          </div>
+          <div>
+            <img class="md:w-16 lg:w-16 w-50" src="../assets/images/about-fd/playstore.svg">
+          </div>
+        </div>
+      </div>
+      <div class="col-span-full">
+        <div class="flex justify-start ml-12 space-x-2 vector__social-icon">
+          <div>
+            <img class="icon-social-media md:mt-5 max-w-none ring-0 lg:w-10 md:w-10 w-12" src="../assets/images/about-fd/instagram.svg">
+          </div>
+          <div>
+            <img class="icon-social-media md:mt-5 max-w-none ring-0 lg:w-10 md:w-10 w-12" src="../assets/images/about-fd/twitter.svg">
+          </div>
+          <div>
+            <img class="icon-social-media md:mt-5 max-w-none ring-0 lg:w-10 md:w-10 w-12" src="../assets/images/about-fd/fb.svg">
+          </div>
+          <div>
+            <img class="icon-social-media md:mt-5 max-w-none ring-0 lg:w-10 md:w-10 w-12" src="../assets/images/about-fd/youtube.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-full mt-4">
+        <div class="flex justify-start ml-12">
+          <div class="shrink-0">
+            <span id="copyright-mobile" class="text-2xl"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const copyrightDesktop = document.getElementById('copyright-desktop')
+  const copyrightMobile = document.getElementById('copyright-mobile')
+  const footerContent = document.querySelector('.content__footer-mobile')
+  const date = new Date()
+  copyrightDesktop.innerHTML = `FD Studio ${date.getFullYear()} | Indonesia's No.1 Beauty Destination`
+  copyrightMobile.innerHTML = `Female Daily Studio @ ${date.getFullYear()}`
+
+  if(subQuestionParam === 'bagaimana-cara-upload-produk') {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      footerContent.style.marginTop = '-.7rem'
+    }
+    // document.querySelector('.container__copyright').classList.add('fixed')
+    // document.querySelector('.container__copyright').setAttribute('style', 'margin-top: 32rem;')
+  }else {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      footerContent.style.marginLeft = '-.1rem'
+    }
+  }
+</script>

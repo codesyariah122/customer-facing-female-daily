@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="How To Shop" />
+    <meta name="author" content="Female Daily" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css">
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="assets/style.css">
+
+    <style>
+      @media screen and (max-width: 745px) {
+        .main__content{
+          height: 60vh;
+          width: 100%;
+          margin-bottom: 35rem;
+          margin-left: 3rem;
+        }
+        .lead__calls--desktop {
+          display: none;
+        }
+        .lead__calls--mobile {
+          display: block;
+          margin-top: 5rem;
+        }
+      }
+      @media(min-width: 992px) {
+        .main__content{
+          height: 100vh;
+          margin-bottom: 27rem;
+          margin-left: 12rem;
+        }
+        .lead__calls--mobile {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="container__header">
+      <div class="container__subheader">
+          <!-- Header content loaded -->
+          <div id="header-content"></div>
+      </div>
+    </div>
+
+    <div class="main__content mt-28 w-screen">
+      <!-- Breadcrumb loaded -->
+      <div id="breadcrumb-nav" class="flex md:justify-center justify-start md:place-content-center -ml-12 md:space-x-0 md:-ml-64 md:mt-36"></div>
+
+      <div class="container content-center py-12 md:mx-auto">
+        <div class="text-center">
+          <div role="status" class="content__loading md:-ml-36 -ml-24">
+            <svg class="inline mr-2 w-36 h-36 text-gray-200 animate-spin dark:text-gray-600 fill-red-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                  <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+              </svg>
+              <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <div class="firsts__content grid grid-cols-3 gap-4 justify-start md:-ml-12">
+          <div class="topic__content-desktop">
+            <div class="flex justify-start ml-7 sm:ml-5">
+              <div class="place-items-start">
+                <h2 class="text-3xl font-bold">Topik</h2>
+              </div>
+            </div>
+            <!-- Left Menu Topic -->
+            <div class="w-70 shadow-none bg-transparent px-1 absolute topic__content-desktop">
+              <ul id="link-menu-topik" class="relative">
+                <li class="relative mb-3 left-menu" data-menu="account" data-heading="Account">
+                  <a onclick="redirectPage('product')" class="flex items-center font-semibold text-1xl py-4 px-6 h-12  text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500" data-mdb-ripple="true" data-mdb-ripple-color="dark">Seller Center Account</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="order" data-heading="Order">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Order</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="return-refund" data-heading="Return & Refund">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Return & Refund</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="product" data-heading="Product">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500" data-mdb-ripple="true" data-mdb-ripple-color="dark">Produk</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="promotion" data-heading="Promotion">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Promosi</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="inventory" data-heading="Inventory">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Inventori</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="settings" data-heading="Store Setting">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Pengaturan Toko</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="store-performance" data-heading="Store Performance">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Store Performance</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="report" data-heading="Report">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Report</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="agreement" data-heading="Persetujuan, Pembayaran & Pajak">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Persetujuan, Pembayaran & Pajak</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="chat" data-heading="Chat & Review">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Chat & Review</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="shipping" data-heading="Pengiriman">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Pengiriman</a>
+                </li>
+                <li class="relative left-menu mb-3" data-menu="notification" data-heading="Notifikasi">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Notifikasi</a>
+                </li>
+                <li class="relative mb-3 left-menu" data-menu="advertisement" data-heading="Pasang Iklan">
+                  <a onclick="redirectPage('product')" class="flex items-center text-1xl font-semibold  py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded cursor-pointer hover:text-indigo-500"  data-mdb-ripple="true" data-mdb-ripple-color="dark">Pasang Iklan</a>
+                </li>
+              </ul>
+            </div>
+            <!-- End Left Menu Topic -->
+          </div>
+
+          <div class="md:col-span-full col-span-full md:ml-12 -ml-7">
+            <div class="flex justify-start md:ml-80 md:-mt-20">
+              <div class="place-items-start">
+                <!-- Heading content loaded -->
+                <h2 class="text-3xl font-bold capitalize md:w-full w-72 text-justify leading-10" id="param-title-heading"></h2>
+              </div>
+            </div>
+            <div class="md:w-full shadow-none bg-transparent px-1 absolute">
+              <!-- Right Menu Active Topic Content -->
+              <ul class="relative" id="sub-menu-elem"></ul>
+              <ul class="relative question__sub--topic" id="question-sub-topic"></ul>
+              <!-- End Right Menu Active Topic -->
+            </div>
+            <!-- place contents -->
+            <div id="topic-contents" class="md:w-6/12 -ml-20 md:ml-2 w-full"></div>
+          </div>
+
+          <!-- lead calls mobile -->
+          <div class="col-span-full lead__calls--mobile border-t-2 -ml-12 w-screen h-screen">
+            <div class="grid grid-cols-12 mb-12 mt-12 ml-14 w-screen">
+              <div class="col-span-8">
+                <h4 class="font-extrabold">Tim kami akan selalu ada untuk membantu Anda.</h4>
+              </div>
+              <div class="col-span-8">
+                <img src="../assets/images/topics/contact-us.svg" alt="" class="max-w-none w-48 mt-6">
+                <p class="font-semibold text-1xl w-96 mt-6 -ml-12">
+                  Tidak menemukan jawaban untuk pertanyaan Anda? Hubungi kami lebih lanjut.
+                </p>
+              </div>
+              <div class="col-span-full mt-6">
+                <div class="grid grid-cols-2 gap-x-4 -ml-4 md:-ml-0">
+                  <!-- Contact Email Button -->
+                  <div class="col-span-8 -ml-24 mb-6">
+                    <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                      <div class="flex justify-center place-content-center">
+                        <div class="flex-1">
+                          <i class="fa fa-envelope-o fa-fw fa-lg text-red-500 font-extrabold text-2xl"></i>
+                        </div>
+                        <div class="shrink w-32 items-start">
+                          <span class="font-extrabold -ml-16">
+                            Email
+                          </span> <br>
+                          <span class="text-gray-400">help@fds.com</span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <!-- contact to form input -->
+                  <div class="col-span-8 -ml-24 mb-6">
+                    <button data-modal-toggle="reportFormModal" type="button" class="w-52 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                      <div class="flex justify-center place-content-center">
+                        <div class="shrink w-64 items-start">
+                          <span class="font-extrabold ">
+                            Report Problem
+                          </span> <br>
+                          <span class="text-gray-100">Click & fill in the form</span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <!-- contact whatsapp button -->
+                  <div data-modal-toggle="liveChatModal" class="col-span-8 -ml-24">
+                    <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                      <div class="flex justify-center place-content-center">
+                        <div class="flex-1">
+                          <i class="fa fa-whatsapp fa-fw fa-lg text-green-600 font-extrabold text-2xl"></i>
+                        </div>
+                        <div class="shrink w-32 items-start">
+                          <span class="font-extrabold md:-ml-10">
+                            WhatsApp
+                          </span> <br>
+                          <span class="text-gray-400 md:-ml-10">Chat here</span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- lead calls desktop -->
+      <div class="container -ml-96 lead__calls--desktop mt-36 md:mt-6 border-t-2 w-screen">
+        <div class="grid grid-cols-12 justify-start lead__content-calls h-screen mt-12">
+          <div class="md:col-span-full col-span-8">
+            <h2 class="font-extrabold">Tim kami akan selalu ada untuk membantu Anda.</h2>
+            <img src="../assets/images/topics/contact-us.svg" alt="" class="max-w-none md:w-48 md:mt-4">
+            <p class="font-semibold text-1xl md:w-5/12 md:mt-6">
+              Tidak menemukan jawaban untuk pertanyaan Anda? Hubungi kami lebih lanjut.
+            </p>
+          </div>
+
+          <div class="col-span-full md:-mt-24">
+            <div class="flex justify-center place-content-center">
+              <!-- button email -->
+              <div class="flex-1">
+                <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                  <div class="flex justify-center place-content-center">
+                    <div class="flex-1">
+                      <i class="fa fa-envelope-o fa-fw fa-lg text-red-500 font-extrabold text-2xl"></i>
+                    </div>
+                    <div class="shrink w-32 items-start">
+                      <span class="font-extrabold md:-ml-16">
+                        Email
+                      </span> <br>
+                      <span class="text-gray-400">help@fds.com</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <!-- button report -->
+              <div class="flex-1">
+                <button data-modal-toggle="reportFormModal" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                  <div class="flex justify-center place-content-center">
+                    <div class="shrink w-64 items-start">
+                      <span class="font-extrabold ">
+                        Report Problem
+                      </span> <br>
+                      <span class="text-gray-100">Click & fill in the form</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <!-- button whatsapp -->
+              <div class="flex-1">
+                <button data-modal-toggle="liveChatModal"  class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                  <div class="flex justify-center place-content-center">
+                    <div class="flex-1">
+                      <i class="fa fa-whatsapp fa-fw fa-lg text-green-600 font-extrabold text-2xl"></i>
+                    </div>
+                    <div class="shrink w-32 items-start">
+                      <span class="font-extrabold md:-ml-10">
+                        WhatsApp
+                      </span> <br>
+                      <span class="text-gray-400 md:-ml-10">Chat here</span>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Chat Modal -->
+            <div id="liveChatModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden md:w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-auto">
+              <div class="request-chat md:w-full max-w-2xl md:h-80 md:-mt-24">
+                  <!-- Modal content -->
+                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                      <div class="flex justify-start space-x-2">
+                        <div class="flex-1">
+                          <img class="logo mt-4" src="../assets/images/FD Studio.svg">
+                        </div>
+                        <div class="flex-none md:mt-6">
+                          <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Seller Center
+                          </h2>
+                        </div>
+                      </div>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="staticModal">
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-6 space-y-6">
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <h2 class="text-1xl font-semibold">Laporkan masalah Anda.</h2>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Lengkap</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan nama lengkap Anda" required>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan alamat email Anda" required>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Masalah</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <select id="topic" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option value="">Pilih masalah Anda</option>
+                          <option value="product">Product</option>
+                          <option value="product">My Order</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                      </div>
+                    </div>
+                    <div class="flex place-content-center items-center">
+                      <div class="flex-none w-full">
+                        <button onclick="liveChat()" type="button" class="focus:outline-none text-white bg-red-700 md:w-52 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Kirim</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="active-chat md:w-full max-w-2xl md:h-full md:mt-48">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                    <div class="flex justify-start space-x-2">
+                      <div class="flex-none">
+                        <img class="max-w-none" src="../assets/images/helpcenter/chat/avatar1.svg">
+                      </div>
+                      <div class="grow">
+                        <h2 class="md:-ml-40 font-semibold text-gray-900 dark:text-white">
+                          Ayu
+                        </h2>
+                        <p class="md:ml-2 text-gray-500 w-full">Anda berada di Antrian no. 3</p>
+                      </div>
+                    </div>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="staticModal">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-6 space-y-6 bg-gray-100 h-72">
+                    <div class="grid grid-cols-6 gap-x-4">
+                      <div class="col-span-12">
+                        <span class="bg-gray-200 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-lg dark:bg-gray-700 dark:text-gray-300">Hari ini</span>
+                      </div>
+
+                      <div class="col-span-full md:mt-6 md:-ml-36">
+                        <span class="bg-white md:mb-36 text-gray-800 text-sm font-medium mr-2 px-2.5 py-4 rounded-t-lg rounded-br-lg dark:bg-gray-700 dark:text-gray-300">
+                          Halo! Nama saya Ayu. Ada yang bisa saya bantu?
+                        </span>
+                      </div>
+                      <div class="col-start-1 col-end-3 md:-ml-24 md:mt-4">
+                        <small class="text-gray-200">10:08 AM</small>
+                      </div>
+
+                      <div class="col-end-7 col-span-12 md:mt-8 md:ml-36">
+                        <span class="bg-green-100  text-gray-800 text-sm font-medium  px-2.5 py-8 rounded-t-lg rounded-br-lg dark:bg-gray-700 dark:text-gray-300">
+                          Produk yang saya upload ditolak. Apa yang harus saya lakukan?
+                        </span>
+                      </div>
+                      <div class="col-end-7 col-span-2 md:mt-8 md:ml-16">
+                        <small class="text-gray-200">10:08 AM</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-start place-content-center">
+                    <div class="col-span-full w-full">
+                      <form>
+                        <label for="chat" class="sr-only">Your message</label>
+                          <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
+                              <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                  <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+                                  <span class="sr-only">Upload image</span>
+                              </button>
+                              <button type="button" class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                  <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clip-rule="evenodd"></path></svg>
+                                  <span class="sr-only">Add emoji</span>
+                              </button>
+                              <textarea id="chat" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+                                  <button type="submit" class="inline-flex justify-center bg-white p-2 text-red-600 rounded-none cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
+                                  <svg aria-hidden="true" class="w-8 h-8 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                                  <span class="sr-only">Send message</span>
+                              </button>
+                          </div>
+                      </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Keluhan -->
+            <div id="reportFormModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 md:h-screen">
+              <div class="w-full h-full max-w-2xl md:mt-48 md:h-screen">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <div class="flex items-start justify-between p-4">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                  <!-- Modal body -->
+                  <div class="alert-success p-6 space-y-6 h-12">
+                    <div class="flex items-center place-content-center">
+                      <div class="flex-none">
+                        <img src="../assets/images/helpcenter/vector/Approve.svg" class="max-w-none w-48" />
+                      </div>
+                    </div>
+                    <div class="flex items-center place-content-center">
+                      <div class="flex-1">
+                        <h2 class="text-2xl font-bold">Kami telah menerima formulir keluhan Anda.</h2>
+                        <p class="text-gray-400 w-full">
+                          Mohon menunggu respon tim kami dalam 1x24 jam di hari kerja.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center place-content-center">
+                      <div class="flex-none">
+                        <button onclick="closeModal()" type="button" class="focus:outline-none text-white bg-red-600 md:w-52 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Kirim</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="content-form md:-mt-8 p-6 space-y-6">
+                    <div class="flex items-center place-content-center">
+                      <div class="flex-none">
+                        <h2 class="text-1xl font-semibold">Formulir Keluhan</h2>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <h3 class="text-1xl font-semibold">
+                          Jelaskan keluhan Anda
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="flex items-start justify-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <h4 class="text-sm text-left text-gray-400">Isi formulir berikut agar kami dapat menyelesaikan keluhan Anda.</h4>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="topik" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topik</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <select id="topik" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option value="">Pilih Topik</option>
+                          <option value="produk">Produk</option>
+                          <option value="pesanan">Pesanan</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jelaskan Masalah Anda</label>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="flex-none w-full md:-mt-4">
+                        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                      </div>
+                    </div>
+                    <div class="flex place-content-center items-center">
+                      <div class="flex-none w-full">
+                        <button onclick="kirimKeluhan()" type="button" class="focus:outline-none text-black bg-gray-200 md:w-52 hover:bg-gray-600 hover:text-white focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Kirim</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- load footer content -->
+      <div id="footer-content" class="-ml-12 md:-ml-96"></div>
+    </div>
+
+
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="assets/partials.js"></script>
+    <script src="assets/script/data.js"></script>
+    <script src="assets/script/functions.js"></script>
+    <script src="assets/script/app.js"></script>
+    <script src="assets/script/popup.js"></script>
+
+  </body>
+</html>

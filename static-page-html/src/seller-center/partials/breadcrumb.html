@@ -1,0 +1,62 @@
+<nav class="flex md:space-x-1 space-x-0 ml-4 -mt-16 md:-mt-0" aria-label="Breadcrumb">
+  <ol class="inline-flex items-center space-x-0 md:space-x-3">
+    <li>
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <a onClick="backTo();document.querySelector('.left-menu').classList.remove('active-left-menu')" class="ml-1 text-sm font-medium text-red-600 hover:text-gray-900 cursor-pointer md:ml-2 dark:text-gray-400 dark:hover:text-white">Pusat Edukasi</a>
+      </div>
+    </li>
+    <li id="query-show" aria-current="page">
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <a id="query-page" class="ml-1 text-sm font-medium text-red-500 md:ml-2 dark:text-gray-400 capitalize">Female Daily</a>
+      </div>
+    </li>
+    <li aria-current="page">
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <span id="current-page" class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 capitalize">Female Daily</span>
+      </div>
+    </li>
+  </ol>
+</nav>
+
+
+<script type="text/javascript">
+  let newParam = null
+  switch(param) {
+    case 'account':
+      document.querySelector('#query-show').style.display='none'
+      document.querySelector('#current-page').textContent = param
+      break;
+
+    case 'order':
+      document.querySelector('#query-show').style.display='none'
+      document.querySelector('#current-page').textContent = param
+      break;
+
+    case 'return-refund':
+      document.querySelector('#query-show').style.display='none'
+      newParam = cleanString(param)
+      document.querySelector('#current-page').textContent = newParam
+      break;
+
+    case 'product':
+      document.querySelector('#query-show').style.display='none'
+      document.querySelector('#current-page').textContent = param
+      break;
+
+      case 'upload-product':
+        document.querySelector('#query-show').style.display='block'
+        newParam = cleanString(param)
+        document.querySelector('#current-page').textContent = newParam
+        document.querySelector('#query-page').setAttribute('href', `topics.html?q=product`)
+        document.querySelector('#query-page').textContent = 'product'
+        break;
+
+        default:
+          console.log("Back index.html")
+          break;
+  }
+
+</script>

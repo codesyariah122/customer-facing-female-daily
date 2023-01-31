@@ -1,0 +1,577 @@
+fragment productSetHome on ProductSet {
+  code
+  name
+  status
+  start
+  end
+  products {
+    code
+    name
+    description
+    finalPrice {
+      promo
+      setoko
+      stock
+    }
+    medias {
+      kind
+      filename
+      url
+    }
+    attributes {
+      kind
+    }
+    brand {
+      name
+    }
+    primaryCategory {
+      name
+    }
+    length
+    width
+    height
+    weight
+    merchant {
+      store
+      active
+    }
+    stock
+    ratingAverage
+    sold
+    reviewCount
+    flashSale
+    flashSaleDescription {
+      normal
+      promo
+      promoDiscount
+      stock
+    }
+    categoryLv1
+    categoryLv2
+    categoryLv3
+    categoryLv4
+    categoryLv5
+    productAward {
+      id
+      fdId
+      code
+      label
+      image
+      position
+    }
+  }
+}
+
+fragment productHome on Product {
+  code
+  name
+  description
+  weight
+  stock
+  length
+  width
+  height
+  finalPrice {
+    promo
+    setoko
+    stock
+  }
+  medias {
+    kind
+    filename
+    url
+  }
+  attributes {
+    kind
+  }
+  flashSale
+  flashSaleDescription {
+    normal
+    promo
+    promoDiscount
+    stock
+  }
+  merchant {
+    code
+    sellerType
+    operationalStatus
+    store
+    active
+  }
+  primaryCategory {
+    code
+    name
+  }
+  brand {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      kind
+      filename
+    }
+    featuredBanner {
+      url
+      kind
+      filename
+    }
+    logo {
+      url
+      kind
+      filename
+    }
+    thumbnailBanner {
+      url
+      kind
+      filename
+    }
+  }
+  ratingAverage
+  reviewCount
+  sold
+  categoryLv1
+  categoryLv2
+  categoryLv3
+  categoryLv4
+  categoryLv5
+  preOrderDuration
+  productAward {
+    id
+    fdId
+    code
+    label
+    image
+    position
+  }
+  beautyConcern
+}
+
+fragment bannerSetHome on BannerSet {
+  code
+  name
+  start
+  end
+  banners {
+    code
+    name
+    creativeName
+    ordering
+    visible
+    target
+    targetKind
+    status
+    variants {
+      key
+      kind
+      filename
+      url
+    }
+  }
+}
+
+fragment brandHome on Brand {
+  code
+  name
+  logo {
+    kind
+    filename
+    url
+  }
+}
+
+fragment brandSetHome on BrandSet {
+  code
+  name
+  start
+  end
+  brands {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      filename
+      kind
+    }
+    featuredBanner {
+      url
+      filename
+      kind
+    }
+    thumbnailBanner {
+      url
+      filename
+      kind
+    }
+    logo {
+      kind
+      filename
+      url
+    }
+    ordering
+    visible
+    featured
+  }
+}
+
+fragment settingHome on Setting {
+  value
+}
+
+fragment categorySetHome on CategorySet {
+  code
+  name
+  start
+  end
+  subCategories {
+    code
+    name
+    ordering
+    level
+    urlKey
+    content {
+      thumbnail {
+        kind
+        filename
+        url
+      }
+    }
+    colors {
+      code
+      name
+    }
+  }
+}
+
+fragment orderStatusHome on OrderStateDetailKind {
+  code
+  en
+  id
+}
+
+fragment ticketStatusHome on TicketDetailStatus {
+  code
+  descEn
+  descId
+}
+
+fragment highlightSetHome on HighlightSet {
+  code
+  name
+  start
+  end
+  highlights {
+    code
+    status
+    start
+    end
+    banner {
+      label {
+        en
+        id
+      }
+      button {
+        label {
+          en
+          id
+        }
+        target
+        targetKind
+        labelColor
+        backgroundColor
+      }
+      labelColor
+      backgroundColor
+      backgroundImages {
+        url
+        kind
+        filename
+      }
+    }
+    items {
+      image {
+        kind
+        url
+        filename
+      }
+      label {
+        en
+        id
+      }
+      target
+      targetKind
+    }
+  }
+}
+
+fragment blogHome on Blog {
+  code
+  title
+  shortDescription
+  status
+  viewed
+  minuteReads
+  url
+  language
+  thumbnailImages {
+    kind
+    url
+    filename
+  }
+  categories {
+    code
+    name
+    status
+  }
+}
+
+fragment promotionHome on Promotion {
+  code
+  name
+  title
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+}
+
+fragment superProductSetHome on SuperProductSet {
+  code
+  name
+  productSets {
+    code
+    name
+    status
+    start
+    end
+    urlKey
+    products {
+      code
+      name
+      description
+      urlKey
+      finalPrice {
+        promo
+        setoko
+        stock
+      }
+      medias {
+        kind
+        filename
+        url
+      }
+      attributes {
+        kind
+      }
+      brand {
+        name
+      }
+      primaryCategory {
+        name
+      }
+      length
+      width
+      height
+      weight
+      merchant {
+        store
+        active
+      }
+      stock
+      ratingAverage
+      sold
+      reviewCount
+      categoryLv1
+      categoryLv2
+      categoryLv3
+      categoryLv4
+      categoryLv5
+      active
+      productAward {
+        id
+        fdId
+        code
+        label
+        image
+        position
+      }
+    }
+  }
+}
+
+query getHomepages($language: String, $promotionOption: String) {
+  orderStatus: orderStatus {
+    ...orderStatusHome
+  }
+
+  ticketStatus: ticketStatus {
+    ...ticketStatusHome
+  }
+
+  homepageBanners: bannerSets(criteria: { section: "HOME-MAIN-BANNER-SET" }) {
+    ...bannerSetHome
+  }
+
+  homepageCategories: categorySets(
+    criteria: { section: "HOME-MAIN-CATEGORY-SET" }
+  ) {
+    ...categorySetHome
+  }
+
+  homepageBrands: brandSets(criteria: { section: "HOME-MAIN-BRAND-SET" }) {
+    ...brandSetHome
+  }
+
+  bannerDirectoryBrands: brandSets(
+    criteria: { section: "brands-directory-brand-set" }
+  ) {
+    ...brandSetHome
+  }
+
+  middleBanners: bannerSets(criteria: { section: "HOME-MIDDLE-BANNER-SET" }) {
+    ...bannerSetHome
+  }
+
+  uspBanners: bannerSets(criteria: { section: "HOME-USP-BANNER-SET" }) {
+    ...bannerSetHome
+  }
+
+  highlightProductHomepage: highlightSets(
+    criteria: { section: "HOME-SETOKO-HIGHLIGHTS", status: APPROVED }
+  ) {
+    ...highlightSetHome
+  }
+
+  productRecommendation: products(
+    criteria: { categoryCode: "recommendation" }
+  ) {
+    ...productHome
+  }
+
+  productRecommendationHomepage: productSets(
+    criteria: { section: "Home-Main-Recommendation-Set" }
+  ) {
+    ...productSetHome
+  }
+
+  homepageCoupons: bannerSets(criteria: { section: "HOMEPAGE COUPONS" }) {
+    ...bannerSetHome
+  }
+
+  homepageSubscription: bannerSets(
+    criteria: { section: "HOMEPAGE SUBSCRIPTIONS" }
+  ) {
+    ...bannerSetHome
+  }
+
+  forYouProductSets: productSets(criteria: { section: "FOR YOU" }) {
+    ...productSetHome
+  }
+
+  productForYou: products(criteria: { categoryCode: "FOR YOU" }) {
+    ...productHome
+  }
+
+  productBestsellers: products(criteria: { categoryCode: "bestsellers" }) {
+    ...productHome
+  }
+
+  productPromos: products(criteria: { categoryCode: "promos" }) {
+    ...productHome
+  }
+
+  superProductSets: superProductSets(
+    criteria: { section: "HOME-SUPER-PRODUCT-LIST-SET" }
+  ) {
+    ...superProductSetHome
+  }
+
+  brands {
+    ...brandHome
+  }
+
+  searchboxPlaceholder: settings(criteria: { code: "SEARCH_BOX_PLACEHOLDER" }) {
+    ...settingHome
+  }
+
+  helpCenter: settings(criteria: { code: "HELP_CENTER" }) {
+    ...settingHome
+  }
+
+  aboutSetoko: settings(criteria: { code: "ABOUT_SETOKO" }) {
+    ...settingHome
+  }
+
+  ctCorpInformation: settings(criteria: { code: "CT_CORP_INFORMATION" }) {
+    ...settingHome
+  }
+
+  howToShop: settings(criteria: { code: "HOW_TO_SHOP" }) {
+    ...settingHome
+  }
+
+  safeShoppingGuarantee: settings(
+    criteria: { code: "SAFE_SHOPPING_GUARANTEE" }
+  ) {
+    ...settingHome
+  }
+
+  privacyPolicy: settings(criteria: { code: "PRIVACY_POLICY" }) {
+    ...settingHome
+  }
+
+  returnRefund: settings(criteria: { code: "RETURN_AND_REFUND" }) {
+    ...settingHome
+  }
+
+  termConditions: settings(criteria: { code: "TERM_CONDITIONS" }) {
+    ...settingHome
+  }
+
+  howToPay: settings(criteria: { code: "PAYMENT_METHOD" }) {
+    ...settingHome
+  }
+
+  deliveryInformation: settings(criteria: { code: "DELIVERY_INFORMATION" }) {
+    ...settingHome
+  }
+
+  megaCreditCard: settings(criteria: { code: "MEGA_CREDIT_CARD" }) {
+    ...settingHome
+  }
+
+  seeAllBlog: settings(criteria: { code: "BLOG" }) {
+    ...settingHome
+  }
+
+  homepageBlog: blogs(criteria: { status: 2, language: $language }) {
+    ...blogHome
+  }
+
+  homepagePromotion: promotions(
+    criteria: {
+      tagCode: ""
+      key: ""
+      sort: "LATEST_DEALS"
+      categoryCode: ""
+      option: $promotionOption
+    }
+    offset: 0
+    limit: 10
+  ) {
+    ...promotionHome
+  }
+}

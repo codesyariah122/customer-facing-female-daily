@@ -1,0 +1,146 @@
+fragment promotionTag on PromotionTag {
+  code
+  name
+}
+fragment promotionList on Promotion {
+  code
+  name
+  title
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+}
+fragment productPromotionList on Product {
+  code
+  name
+  description
+  weight
+  stock
+  finalPrice {
+    promo
+    setoko
+    stock
+  }
+  medias {
+    kind
+    filename
+    url
+  }
+  attributes {
+    kind
+  }
+  merchant {
+    code
+    active
+  }
+  primaryCategory {
+    code
+    name
+  }
+  brand{
+    code
+    name
+    creativeName
+    logo {
+      url
+      kind
+      filename
+    }
+    }
+    flashSale
+    flashSaleDescription{
+        normal
+        promo
+        promoDiscount
+        stock
+    }
+    categoryLv1
+    categoryLv2
+    categoryLv3
+    categoryLv4
+    categoryLv5
+    warehouses {
+      code
+      city
+    }
+    preOrderDuration
+    productAward{
+      id
+      fdId
+      code
+      label
+      image
+      position
+    }
+    ratingAverage
+    attributes {
+        kind
+        name
+        value
+        variance
+    }
+    children {
+      attributes {
+        kind
+        name
+        value
+        variance
+      }
+      code
+      name
+      description
+      weight
+      favorites
+      stock
+      merchantSku
+      categoryLv1
+      categoryLv2
+      categoryLv3
+      categoryLv4
+      categoryLv5
+      medias {
+        url
+      }
+    }
+}
+query getListPromotionPage(
+  $tagCode: String!
+  $searchKey: String!
+  $promoSort: String!
+  $categoryCode: String!
+  $option: String!
+  $promoCode: String!
+) {
+  promotionTag: promotionTags(offset: 0) {
+    ...promotionTag
+  }
+  promotion: promotions(
+    criteria: {
+      tagCode: $tagCode
+      key: $searchKey
+      sort: $promoSort
+      categoryCode: $categoryCode
+      option: $option
+    }
+    offset: 0
+    limit: 9999999
+  ) {
+    ...promotionList
+  }
+  product: promotionProducts(code: $promoCode, offset: 0, limit: 10) {
+    ...productPromotionList
+  }
+}

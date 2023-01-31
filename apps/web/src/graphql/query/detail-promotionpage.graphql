@@ -1,0 +1,140 @@
+fragment promo on Promotion {
+  code
+  name
+  title
+  urlKey
+  bannerImage {
+    kind
+    filename
+    url
+  }
+  start
+  end
+  minimumTransaction
+  termConditions {
+    en
+    id
+  }
+  benefitType
+  coupons {
+    code
+  }
+  tags {
+    code
+  }
+}
+fragment product on Product {
+  code
+  name
+  urlKey
+  description
+  weight
+  length
+  width
+  height
+  digital
+  stock
+  finalPrice {
+    promo
+    setoko
+    stock
+  }
+  medias {
+    kind
+    filename
+    url
+  }
+  attributes {
+    kind
+  }
+  merchant {
+    code
+    status
+    store
+    operationalOpen
+    operationalStatus
+    active
+  }
+  primaryCategory {
+    code
+    name
+  }
+  brand {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      kind
+      filename
+    }
+    featuredBanner {
+      url
+      kind
+      filename
+    }
+    logo {
+      url
+      kind
+      filename
+    }
+    thumbnailBanner {
+      url
+      kind
+      filename
+    }
+  }
+  flashSale
+  flashSaleDescription {
+    normal
+    promo
+    promoDiscount
+    stock
+  }
+  categoryLv1
+  categoryLv2
+  categoryLv3
+  categoryLv4
+  categoryLv5
+  warehouses {
+    code
+    city
+  }
+  preOrderDuration
+  reviewCount
+  ratingAverage
+  productInfo {
+    productAvailability
+  }
+}
+query getDetailPromotionPage(
+  $tagCode: String
+  $key: String
+  $urlKey: String
+  $sort: String
+  $categoryCode: String
+  $option: String
+) {
+  promotion: promotions(
+    criteria: {
+      tagCode: $tagCode
+      key: $key
+      urlKey: $urlKey
+      sort: $sort
+      categoryCode: $categoryCode
+      option: $option
+    }
+    offset: 0
+    limit: 9999999
+  ) {
+    ...promo
+  }
+  product: promotionProducts(
+    code: ""
+    urlKey: $urlKey
+    offset: 0
+    limit: 9999999
+  ) {
+    ...product
+  }
+}

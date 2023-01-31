@@ -1,0 +1,68 @@
+fragment productSets on ProductSet {
+  code
+  name
+  urlKey
+  status
+  start
+  end
+  products {
+    code
+    name
+    description
+    urlKey
+    price {
+      basic
+      setoko
+      normal
+      promo
+      subscription
+    }
+    medias {
+      kind
+      filename
+      url
+    }
+    attributes {
+      name
+      kind
+      inputKind
+    }
+    brand {
+      code
+      name
+    }
+    primaryCategory {
+      code
+      name
+      active
+    }
+    active
+    digital
+    length
+    width
+    height
+    weight
+    merchant {
+      code
+      store
+      sellerType
+      productSold
+      operationalStatus
+    }
+    stock
+    sold
+    productInfo {
+      productAvailability
+      descEn
+      descId
+    }
+    ratingAverage
+    reviewCount
+    flashSale
+  }
+}
+query getWidgetSuperProductSet($section: String) {
+  widgetSuperProductSet: productSets(criteria: { section: $section }) {
+    ...productSets
+  }
+}

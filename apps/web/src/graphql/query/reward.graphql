@@ -1,0 +1,14 @@
+fragment reward on Reward {
+  couponsCount
+  alloPoint
+  coupons {
+    couponCode
+    couponType
+  }
+}
+
+query getRewardUser {
+  rewards: rewards {
+    ...reward
+  }
+}

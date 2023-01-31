@@ -1,0 +1,1908 @@
+type Address {
+  address: String
+  areaCode: String
+  city: String
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  district: String
+  latitude: Float!
+  longitude: Float!
+  name: String
+  notes: String
+  phone: String
+  postalCode: String
+  province: String
+  recipient: String
+  subdistrict: String
+  "ISO-8601"
+  updatedAt: DateTime
+}
+
+type AlloWalletPointInfo {
+  alloPointBalance: Int!
+  alloWalletBalance: Int!
+  alloWalletLevel: AlloUserLevel
+  alloWalletRegistered: Boolean!
+  insufficient: Boolean!
+}
+
+type ArticleProduct {
+  excerpt: String
+  id: BigInteger
+  image: String
+  slug: String
+  title: String
+  url: String
+}
+
+type Attribute {
+  attributeOptions: [AttributeOption]
+  code: String
+  deleted: Boolean!
+  id: BigInteger
+  inputKind: AttributeInputKind
+  kind: AttributeKind
+  name: String
+  value: String
+  variance: Boolean!
+  visible: Boolean!
+}
+
+type AttributeOption {
+  code: String
+  deleted: Boolean!
+  id: BigInteger
+  name: String
+}
+
+type AttributeSet {
+  attributes: [ExtendedAttribute]
+  category: Category!
+  code: String
+  deleted: Boolean!
+  id: BigInteger
+  name: String!
+}
+
+type BankInfo {
+  bank: String
+  branch: String
+  city: String
+  holder: String
+  number: String
+  province: String
+}
+
+type BannerDetail {
+  backgroundColor: String!
+  backgroundImages: [Media]
+  button: Button
+  label: Label!
+  labelColor: String!
+}
+
+type BannerMedia {
+  filename: String
+  key: String
+  kind: MediaKind
+  url: String
+}
+
+type BannerSet {
+  active: Boolean!
+  banners: [ExtendedBanner]
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+}
+
+type Blog {
+  categories: [BlogCategory]
+  code: String
+  id: BigInteger
+  language: String
+  minuteReads: String
+  name: String
+  shortDescription: String
+  status: Int!
+  thumbnailImages: [Media]
+  title: String
+  url: String
+  viewed: Int!
+}
+
+type BlogCategory {
+  blogs: [Blog]
+  code: String
+  id: BigInteger
+  name: String
+  status: Int!
+}
+
+type Brand {
+  bannerImage: Media
+  businessModel: BusinessModelKind
+  code: String
+  creativeName: String
+  deleted: Boolean!
+  externalUrl: String
+  featuredBanner: Media
+  id: BigInteger
+  logo: Media
+  name: String
+  thumbnailBanner: Media
+  urlKey: String
+  useExternalUrl: Boolean!
+}
+
+type BrandSet {
+  active: Boolean!
+  brands: [ExtendedBrand]
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+}
+
+type BusinessHour {
+  details: [BusinessHourDetail]
+  greetingMessageOperationalActive: Boolean!
+  greetingMessageOutsideOperational: String
+}
+
+type BusinessHourDetail {
+  code: String
+  days: [Day]
+  id: BigInteger
+  "ISO-8601"
+  storeClosedTime: Time
+  "ISO-8601"
+  storeOpenedTime: Time
+  timezone: String
+}
+
+type Button {
+  backgroundColor: String!
+  label: Label!
+  labelColor: String!
+  target: String
+  targetKind: BannerTargetKind
+}
+
+type Category {
+  absoluteOrdering: Int!
+  active: Boolean!
+  attributeSet: AttributeSet
+  availableInFd: Boolean!
+  children: [Category]
+  code: String
+  colors: [CategoryColor]
+  content: CategoryContent
+  deleted: Boolean!
+  id: BigInteger
+  inMenu: Boolean!
+  level: String
+  logo: Media
+  name: String
+  parent: Category
+  partner: ExtendedPartner
+  status: ModelSetStatus
+  type: CategoryType
+  urlKey: String
+}
+
+type CategoryColor {
+  code: String
+  hexaColor: String
+  id: BigInteger
+  name: String
+}
+
+type CategoryContent {
+  categoryImage: Media
+  thumbnail: Media
+}
+
+type CategorySet {
+  active: Boolean!
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+  subCategories: [ExtendedCategory]
+}
+
+type CouponCode {
+  code: String
+  customer: [CustomerCoupon]
+}
+
+type Customer {
+  addresses: [Address]
+  alloUserLevel: AlloUserLevel
+  alloWalletRegistered: Boolean!
+  chatSuggestionStatus: Boolean!
+  code: String
+  completedBeautyProfile: Boolean!
+  "ISO-8601"
+  createdAt: DateTime
+  deviceId: String
+  "ISO-8601"
+  dob: Date
+  email: String
+  equipmentId: String
+  favorites: [WishListItem]
+  fcms: [Fcm]
+  fdId: String
+  gender: GenderKind
+  id: BigInteger
+  maritalKind: CustomerMaritalKind
+  mobile: String
+  mpcProfile: ResponseData
+  name: String
+  newSynced: Boolean!
+  notificationSetting: NotificationSetting
+  osType: OsType
+  picture: Media
+  templates: [TemplateChat]
+  "ISO-8601"
+  updatedAt: DateTime
+  username: String
+  wishLists: [WishList]
+}
+
+type CustomerCoupon {
+  alloCustomerId: String
+}
+
+type Day {
+  active: Boolean!
+  day: String
+}
+
+type Detail {
+  daysEn: String
+  daysId: String
+  hoursEn: String
+  hoursId: String
+}
+
+type DigitalCareChat {
+  chatResponse: Boolean!
+  myTicket: Boolean!
+  returnAndRefund: Boolean!
+}
+
+type Document {
+  "ISO-8601"
+  createdAt: DateTime
+  filename: String
+  kind: DocumentKind!
+  number: String
+  status: DocumentStatus
+  "ISO-8601"
+  updatedAt: DateTime
+  updatedBy: String
+  url: String
+}
+
+type DocumentChecked {
+  akta: Boolean!
+  hki: Boolean!
+  ktp: Boolean!
+  npwp: Boolean!
+  sbrt: Boolean!
+  siup: Boolean!
+  skd: Boolean!
+  skt: Boolean!
+  spd: Boolean!
+  sppkp: Boolean!
+  tdp: Boolean!
+}
+
+type DualLanguage {
+  en: String
+  id: String
+}
+
+type EmailNotification {
+  email: String
+  promo: Promo
+  transactions: SetokoTransaction
+}
+
+type ErrorMessageDetail {
+  code: String
+  en: String
+  id: String
+}
+
+type ExtendedAttribute {
+  attributeOptions: [AttributeOption]
+  code: String
+  deleted: Boolean!
+  id: BigInteger
+  inputKind: AttributeInputKind
+  kind: AttributeKind
+  name: String
+  ordering: Int!
+  value: String
+  variance: Boolean!
+  visible: Boolean!
+}
+
+type ExtendedBanner {
+  code: String
+  creativeName: String!
+  deleted: Boolean!
+  digital: Boolean!
+  "ISO-8601"
+  end: DateTime!
+  id: BigInteger
+  kind: BannerKind!
+  name: String!
+  ordering: Int!
+  "ISO-8601"
+  start: DateTime!
+  status: ModelSetStatus!
+  target: String
+  targetKind: BannerTargetKind
+  variants: [BannerMedia]
+  visible: Boolean!
+}
+
+type ExtendedBrand {
+  bannerImage: Media
+  businessModel: BusinessModelKind
+  code: String
+  creativeName: String
+  deleted: Boolean!
+  externalUrl: String
+  featured: Boolean!
+  featuredBanner: Media
+  id: BigInteger
+  logo: Media
+  name: String
+  ordering: Int!
+  thumbnailBanner: Media
+  urlKey: String
+  useExternalUrl: Boolean!
+  visible: Boolean!
+}
+
+type ExtendedCategory {
+  absoluteOrdering: Int!
+  active: Boolean!
+  attributeSet: AttributeSet
+  availableInFd: Boolean!
+  children: [Category]
+  code: String
+  colors: [CategoryColor]
+  content: CategoryContent
+  deleted: Boolean!
+  id: BigInteger
+  inMenu: Boolean!
+  level: String
+  logo: Media
+  name: String
+  ordering: Int!
+  parent: Category
+  partner: ExtendedPartner
+  status: ModelSetStatus
+  type: CategoryType
+  urlKey: String
+}
+
+type ExtendedHighlight {
+  banner: BannerDetail
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime!
+  id: BigInteger
+  items: [ItemDetail]
+  name: String!
+  ordering: Int!
+  "ISO-8601"
+  start: DateTime!
+  status: ModelSetStatus!
+  visible: Boolean!
+}
+
+type ExtendedPartner {
+  active: Boolean!
+  categories: [PartnerCategory]
+  code: String
+  connected: Boolean!
+  id: BigInteger
+  name: String
+}
+
+type ExtendedProduct {
+  absoluteOrdering: Int!
+  active: Boolean!
+  "ISO-8601"
+  approvedAt: DateTime
+  article: ArticleProduct
+  attributeSet: AttributeSet
+  attributes: [Attribute]
+  availableForProductMatches: Boolean!
+  availableStock: Int!
+  barcode: String
+  beautyConcern: String
+  brand: Brand
+  bulk: Boolean!
+  categoryLv1: String
+  categoryLv2: String
+  categoryLv3: String
+  categoryLv4: String
+  categoryLv5: String
+  childOrdering: Int!
+  children: [Product]
+  cities: [ShippingArea]
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  description: String
+  digital: Boolean!
+  favorites: Int!
+  fdProductId: Int
+  finalPrice: Price
+  flashSale: Boolean!
+  flashSaleDescription: TypesenseCampaignSlotProductResponse
+  height: BigDecimal
+  id: BigInteger
+  installation: Installation
+  installationAreas: [FinalInstallationArea]
+  installationService: Boolean!
+  inventory: Boolean!
+  "ISO-8601"
+  lastPriceChangedAt: DateTime
+  length: BigDecimal
+  max: Int!
+  medias: [Media]
+  memberReviews: [MemberReview]
+  memberReviewsUrl: String
+  merchant: Merchant
+  merchantSku: String
+  name: String
+  orderRatingAverage: BigDecimal
+  orderReviewCount: Int!
+  ordering: Int!
+  parent: Product
+  paymentList: [PaymentResponse]
+  paymentMethod: [String]
+  po: Int!
+  preOrder: Boolean!
+  preOrderDuration: Int!
+  previousActive: Boolean!
+  price: PriceInfo
+  primaryCategory: Category
+  productAward: ProductAward
+  productInfo: ProductInfo
+  provinces: [ShippingArea]
+  ratingAverage: BigDecimal
+  reviewCount: Int!
+  reviews: [Review]
+  shipping: [ProductShipping]
+  sold: Int!
+  status: ProductStatus
+  stock: Int!
+  stockHold: Int!
+  tags: [String]
+  tax: Boolean!
+  "ISO-8601"
+  updatedAt: DateTime
+  urlKey: String
+  userRecommendationPercentage: BigDecimal
+  visible: Boolean!
+  warehouses: [ProductWarehouse]
+  weight: BigDecimal
+  width: BigDecimal
+  youtube: String
+}
+
+type ExtendedProductSet {
+  active: Boolean!
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  ordering: Int!
+  products: [ExtendedProduct]
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+  urlKey: String
+  visible: Boolean!
+}
+
+type Fcm {
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  kind: FcmKind
+}
+
+type FinalInstallationArea {
+  id: String
+  nameEng: String
+  nameInd: String
+}
+
+type Finance {
+  email: String
+  mobile: String
+  name: String
+  role: String
+}
+
+type HighlightSet {
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime!
+  highlights: [ExtendedHighlight]
+  id: BigInteger
+  name: String!
+  "ISO-8601"
+  start: DateTime!
+  status: ModelSetStatus!
+}
+
+type HolidayMode {
+  "ISO-8601"
+  endDate: Date
+  greetingMessageHolidayMode: String
+  greetingMessageHolidayModeActive: Boolean!
+  "ISO-8601"
+  startDate: Date
+}
+
+type Installation {
+  active: Boolean!
+  applied: Int!
+  cities: [InstallationArea]
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  description: String
+  id: BigInteger
+  items: [Product]
+  merchant: Merchant
+  merchantSku: String
+  name: String
+  price: InstallationPriceInfo
+  priceFinal: InstallationPriceFinalInfo
+  provinces: [InstallationArea]
+  status: InstallationProductStatus
+  tax: Boolean!
+  "ISO-8601"
+  updatedAt: DateTime
+}
+
+type InstallationArea {
+  code: String
+  id: String
+  name: String
+}
+
+type InstallationPriceFinalInfo {
+  basic: BigDecimal
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  edit: Boolean!
+  "ISO-8601"
+  endAt: DateTime
+  normal: BigDecimal
+  retail: BigDecimal
+  setoko: BigDecimal
+  source: PriceFinalSource
+  "ISO-8601"
+  startAt: DateTime
+  status: InstallationPriceStatus
+  tax: BigDecimal
+}
+
+type InstallationPriceInfo {
+  basic: BigDecimal
+  code: String
+  edit: Boolean!
+  normal: BigDecimal
+  promo: Boolean!
+  promoPrice: BigDecimal
+  retail: BigDecimal
+  setoko: BigDecimal
+  tax: BigDecimal
+}
+
+type ItemDetail {
+  image: Media
+  label: Label!
+  target: String
+  targetKind: BannerTargetKind
+}
+
+type Label {
+  en: String
+  id: String
+}
+
+type Managed {
+  code: String
+  label: DualLanguage
+  type: [MerchantTypeDetail]
+}
+
+type Media {
+  filename: String
+  kind: MediaKind
+  url: String
+}
+
+type MemberReview {
+  code: String
+  comment: String
+  "ISO-8601"
+  createdAt: DateTime
+  id: BigInteger
+  rating: Float!
+  recommending: Boolean!
+  "ISO-8601"
+  reviewDate: DateTime
+  reviewer: MemberReviewReviewer
+  reviewerVerified: Boolean!
+}
+
+type MemberReviewReviewer {
+  age: Int!
+  ageRange: String
+  avatarUrl: String
+  beautyLevel: String
+  fullname: String
+  skinType: String
+  username: String
+}
+
+type Merchant {
+  "ISO-8601"
+  acceptedAt: DateTime
+  active: Boolean!
+  address: String
+  agreementDocumentFilename: String
+  agreementDocumentUrl: String
+  bank: BankInfo
+  banner: [Media]
+  brand: String
+  broadcastLimit: Int!
+  broadcastRecipientLimit: Int!
+  businessKind: MerchantBusinessKind
+  businessKindOther: String
+  chatSuggestionStatus: Boolean!
+  chatViolationTotal: Int!
+  code: String
+  company: String
+  "ISO-8601"
+  createdAt: DateTime
+  deactivateReason: String
+  deactivateReasonDetail: String
+  defaultPassword: Boolean!
+  description: String
+  document: DocumentChecked
+  documents: [Document]
+  email: String
+  emailVerified: Boolean!
+  filterType: String
+  finance: Finance
+  id: BigInteger
+  industries: [String]
+  keycloak: String
+  managedBy: ManagedKind
+  managedByDescription: Managed
+  merchantType: MerchantTypeKind
+  merchantTypeDescription: MerchantTypeDetail
+  mobile: String
+  name: String
+  note: String
+  notePartner: String
+  noteRevision: [NoteRevision]
+  npwp: String
+  operationalInfo: OperationalInfo
+  "ISO-8601"
+  operationalOpen: DateTime
+  operationalStatus: OperationalStatus
+  partnership: MerchantPartnershipKind
+  partnershipBegin: String
+  partnershipStatus: MerchantPartnershipStatus
+  password: String
+  productSold: Int!
+  profilePicture: Media
+  sellerType: String
+  sign: Sign
+  social: SocialInfo
+  status: MerchantStatus
+  stepRegister: MerchantStepRegister
+  store: String
+  templateChats: [TemplateChat]
+  templates: [TemplateReview]
+  totalChatCustomer: Int!
+  "ISO-8601"
+  updatedAt: DateTime
+  verification: Verification
+  webhookForOrder: String
+  website: String
+  wizardState: MerchantWizardState
+  youtube: String
+}
+
+type MerchantFeedback {
+  comment: String
+  "ISO-8601"
+  createdAt: DateTime
+}
+
+type MerchantTypeDetail {
+  code: String
+  label: DualLanguage
+}
+
+type NoteRevision {
+  "ISO-8601"
+  createdAt: DateTime
+  note: String
+}
+
+type NotificationSetting {
+  emailNotification: EmailNotification
+  pushNotification: PushNotification
+  smsNotification: SmsNotification
+}
+
+type OperationalInfo {
+  descEn: String
+  descId: String
+  labelEn: String
+  labelId: String
+  titleEn: String
+  titleId: String
+}
+
+type OperationalStore {
+  businessHours: BusinessHour
+  "ISO-8601"
+  createdAt: DateTime
+  greetingMessage: String
+  greetingMessageActive: Boolean!
+  holidayMode: HolidayMode
+  holidayModeActive: Boolean!
+  id: BigInteger
+  operationalView: OperationalView
+  "ISO-8601"
+  updatedAt: DateTime
+}
+
+type OperationalView {
+  businessHourView: [Detail]
+  dailyHolidayView: [Detail]
+}
+
+type Order {
+  orderStatus: Boolean!
+}
+
+type OrderStateDetailKind {
+  code: String
+  en: String
+  id: String
+}
+
+type Partner {
+  categories: [PartnerCategory]
+  code: String
+  connected: Boolean!
+  id: BigInteger
+  name: String
+}
+
+type PartnerCategory {
+  active: Boolean!
+  category: Category
+  id: PartnerCategoryId
+  "ISO-8601"
+  inactiveEndTime: DateTime
+  "ISO-8601"
+  inactiveStartTime: DateTime
+  ordering: Int!
+  partner: Partner
+}
+
+type PartnerCategoryId {
+  category: BigInteger
+  partner: BigInteger
+}
+
+type PaymentResponse {
+  active: Boolean!
+  alloPaymentInfo: AlloWalletPointInfo
+  alloPointEstimated: String
+  datalist: [PaymentResponse]
+  description: String
+  error: String
+  errorMessage: ErrorMessageDetail
+  groupCode: String
+  logo: String
+  maxPayment: Int
+  maxPaymentMsg: String
+  method: String
+  minPayment: Int
+  minPaymentMsg: String
+  parentGroupCode: [String]
+  title: String
+  type: String
+}
+
+type Price {
+  basic: BigDecimal
+  code: String
+  edit: Boolean!
+  "ISO-8601"
+  endAt: DateTime
+  maxPurchase: Int!
+  priceStatus: ProductPriceStatus
+  productCode: String
+  promo: BigDecimal
+  retail: BigDecimal
+  setoko: BigDecimal
+  source: PriceSource
+  "ISO-8601"
+  startAt: DateTime
+  stock: Int!
+  tax: BigDecimal
+}
+
+type PriceInfo {
+  basic: BigDecimal
+  code: String
+  collectionFee: BigDecimal
+  edit: Boolean!
+  normal: BigDecimal
+  promo: BigDecimal
+  retail: BigDecimal
+  serviceFee: BigDecimal
+  setoko: BigDecimal
+  subscription: BigDecimal
+  tax: BigDecimal
+}
+
+type Product {
+  absoluteOrdering: Int!
+  active: Boolean!
+  "ISO-8601"
+  approvedAt: DateTime
+  article: ArticleProduct
+  attributeSet: AttributeSet
+  attributes: [Attribute]
+  availableForProductMatches: Boolean!
+  availableStock: Int!
+  barcode: String
+  beautyConcern: String
+  brand: Brand
+  bulk: Boolean!
+  categoryLv1: String
+  categoryLv2: String
+  categoryLv3: String
+  categoryLv4: String
+  categoryLv5: String
+  childOrdering: Int!
+  children: [Product]
+  cities: [ShippingArea]
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  description: String
+  digital: Boolean!
+  favorites: Int!
+  fdProductId: Int
+  finalPrice: Price
+  flashSale: Boolean!
+  flashSaleDescription: TypesenseCampaignSlotProductResponse
+  height: BigDecimal
+  id: BigInteger
+  installation: Installation
+  installationAreas: [FinalInstallationArea]
+  installationService: Boolean!
+  inventory: Boolean!
+  "ISO-8601"
+  lastPriceChangedAt: DateTime
+  length: BigDecimal
+  max: Int!
+  medias: [Media]
+  memberReviews: [MemberReview]
+  memberReviewsUrl: String
+  merchant: Merchant
+  merchantSku: String
+  name: String
+  orderRatingAverage: BigDecimal
+  orderReviewCount: Int!
+  parent: Product
+  paymentList: [PaymentResponse]
+  paymentMethod: [String]
+  po: Int!
+  preOrder: Boolean!
+  preOrderDuration: Int!
+  previousActive: Boolean!
+  price: PriceInfo
+  primaryCategory: Category
+  productAward: ProductAward
+  productInfo: ProductInfo
+  provinces: [ShippingArea]
+  ratingAverage: BigDecimal
+  reviewCount: Int!
+  reviews: [Review]
+  shipping: [ProductShipping]
+  sold: Int!
+  status: ProductStatus
+  stock: Int!
+  stockHold: Int!
+  tags: [String]
+  tax: Boolean!
+  "ISO-8601"
+  updatedAt: DateTime
+  urlKey: String
+  userRecommendationPercentage: BigDecimal
+  warehouses: [ProductWarehouse]
+  weight: BigDecimal
+  width: BigDecimal
+  youtube: String
+}
+
+type ProductAward {
+  code: String
+  fdId: BigInteger
+  id: BigInteger
+  image: String
+  label: String
+  position: Int!
+  product: Product
+}
+
+type ProductInfo {
+  descEn: String
+  descId: String
+  productAvailability: ProductAvailability
+}
+
+type ProductSet {
+  active: Boolean!
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  products: [ExtendedProduct]
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+  urlKey: String
+}
+
+type ProductShipping {
+  name: String
+  value: Boolean!
+}
+
+type ProductWarehouse {
+  city: String
+  code: String
+  quantity: Int!
+  searchLocation: [String]
+}
+
+type Promo {
+  setokoNewsletter: Boolean!
+}
+
+type Promotion {
+  bannerImage: [Media]
+  benefitType: String
+  categories: [PromotionDetail]
+  code: String
+  coupons: [CouponCode]
+  "ISO-8601"
+  createdAt: DateTime
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  minimumTransaction: BigDecimal
+  name: String
+  products: [ExtendedProduct]
+  "ISO-8601"
+  published: DateTime
+  rule: [PromotionDetail]
+  "ISO-8601"
+  start: DateTime
+  status: Int!
+  tags: [PromotionDetail]
+  termConditions: TermCondition
+  title: String
+  "ISO-8601"
+  updatedAt: DateTime
+  urlKey: String
+  visibility: Int!
+}
+
+type PromotionDetail {
+  code: String
+  magentoId: Int!
+}
+
+type PromotionTag {
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  name: String
+  "ISO-8601"
+  start: DateTime
+  status: Int!
+  "ISO-8601"
+  updatedAt: DateTime
+}
+
+type PushNotification {
+  digitalCareChat: DigitalCareChat
+  order: Order
+  setokoUpdates: SetokoUpdate
+}
+
+"Query root"
+type Query {
+  "Query banner sets."
+  bannerSets(asc: Boolean = true, criteria: BannerSetCriteriaInput, limit: Int = 100, offset: Int = 0): [BannerSet]
+  "Query blog."
+  blogs(criteria: BlogCriteriaInput, limit: Int = 6): [Blog]
+  "Query brand sets."
+  brandSets(asc: Boolean = true, criteria: BrandSetCriteriaInput, limit: Int = 100, offset: Int = 0): [BrandSet]
+  "Query brands."
+  brands(criteria: BrandCriteriaInput): [Brand]
+  "Query category sets."
+  categorySets(asc: Boolean = true, criteria: CategorySetCriteriaInput, limit: Int = 100, offset: Int = 0): [CategorySet]
+  "Query My Promotion coupons Pages sets."
+  coupons(criteria: PromotionCriteriaInput, limit: Int = 20, offset: Int = 0): [Promotion]
+  "Query Filter Type For Seller CF."
+  filterTypes: [String]
+  "Query highlight sets."
+  highlightSets(asc: Boolean = true, criteria: HighlightSetCriteriaInput, limit: Int = 2, offset: Int = 0): [HighlightSet]
+  "Query Order Status."
+  orderStatus: [OrderStateDetailKind]
+  "Query product matches."
+  productMatches(deviceId: String, equipmentId: String, limit: Int = 10, offset: Int = 0, osType: String): [Product]
+  productSetProducts(code: String, limit: Int = 20, offset: Int = 0): [Product]
+  "Query product sets."
+  productSets(asc: Boolean = true, criteria: ProductSetCriteriaInput, limit: Int = 100, offset: Int = 0): [ProductSet]
+  "Query products."
+  products(asc: Boolean = true, criteria: ProductCriteriaInput, limit: Int = 100, offset: Int = 0, store: StoreInput): [Product]
+  "Query my profile."
+  profile(deviceId: String, equipmentId: String, osType: String): [Customer]
+  promotionProducts(code: String, limit: Int = 20, offset: Int = 0, urlKey: String): [Product]
+  "Query Promotion Tags sets."
+  promotionTags(limit: Int = 100, offset: Int = 0): [PromotionTag]
+  "Query Promotion Pages sets."
+  promotions(criteria: PromotionCriteriaInput, limit: Int = 20, offset: Int = 0): [Promotion]
+  "Query my shopping cart."
+  quote(criteria: QuoteItemCriteriaInput): [Quote]
+  "Query Refund Status."
+  refundStatus: [RefundDetailStatus]
+  "Query My Rewards Pages sets."
+  rewards: Reward
+  "Query Seller Type."
+  sellerType: [MerchantTypeDetail]
+  "Query settings."
+  settings(asc: Boolean = true, criteria: SettingCriteriaInput, limit: Int = 100, offset: Int = 0): [Setting]
+  "Query stores."
+  stores(asc: Boolean = true, criteria: StoreCriteriaInput, limit: Int = 100, offset: Int = 0): [Store]
+  "Query super product sets."
+  superProductSets(asc: Boolean = true, criteria: ProductSetCriteriaInput, limit: Int = 100, offset: Int = 0): [SuperProductSet]
+  "Query Ticket Status."
+  ticketStatus: [TicketDetailStatus]
+}
+
+type Quote {
+  guestId: String
+  id: BigInteger!
+  items: [QuoteMerchantItem]
+  unavailable: [QuoteMerchantItem]
+}
+
+type QuoteMerchantItem {
+  items: [QuoteProductItem]
+  merchant: Merchant
+}
+
+type QuoteProductItem {
+  broadcastCode: String
+  installation: Installation
+  installationApplied: Boolean!
+  installationNote: String
+  merchantCode: String
+  parentCode: String
+  parentUrlKey: String
+  preOrder: Boolean!
+  preOrderDuration: Int!
+  product: Product
+  quantity: Int!
+  status: Boolean!
+}
+
+type RefundDetailStatus {
+  code: String
+  descEn: String
+  descId: String
+}
+
+type ResponseData {
+  countryCode: String
+  createTime: String
+  dateOfBirth: String
+  email: String
+  emailStatus: String
+  gender: String
+  idNo: String
+  idType: String
+  mdcId: String
+  name: String
+  passwordStatus: String
+  phoneNo: String
+  status: String
+}
+
+type Review {
+  attributes: [Attribute]
+  code: String
+  comment: String
+  "ISO-8601"
+  createdAt: DateTime
+  id: BigInteger
+  medias: [Media]
+  merchantFeedback: MerchantFeedback
+  pinned: Boolean!
+  productCode: String
+  productName: String
+  rating: Int!
+  "ISO-8601"
+  reviewDate: DateTime
+  reviewer: Reviewer
+  status: ReviewStatus
+  tags: [String]
+}
+
+type Reviewer {
+  name: String
+  picture: Media
+}
+
+type Reward {
+  alloPoint: Int!
+  coupons: [RewardCoupon]
+  couponsCount: Int!
+}
+
+type RewardCoupon {
+  bannerImage: [Media]
+  couponCode: String
+  couponType: String
+  promotionCode: String
+  "ISO-8601"
+  promotionEnd: DateTime
+  promotionMinimumTransaction: BigDecimal
+  "ISO-8601"
+  promotionStart: DateTime
+  promotionTermConditions: TermCondition
+  promotionTitle: String
+  promotionUrlKey: String
+}
+
+type Session {
+  "ISO-8601"
+  end: DateTime
+  "ISO-8601"
+  start: DateTime
+}
+
+type SetokoTransaction {
+  inDelivery: Boolean!
+  inProcess: Boolean!
+  needPayment: Boolean!
+  orderCompleted: Boolean!
+  orderDelivered: Boolean!
+  review: Boolean!
+}
+
+type SetokoUpdate {
+  information: Boolean!
+  promoAndEvent: Boolean!
+}
+
+type Setting {
+  code: String
+  id: BigInteger
+  name: String
+  value: String
+}
+
+type ShippingArea {
+  code: String
+  id: String
+  name: String
+}
+
+type Sign {
+  email: String
+  mobile: String
+  name: String
+  role: String
+}
+
+type SmsNotification {
+  mobile: String
+  smsNotification: Boolean!
+}
+
+type SocialInfo {
+  facebook: String
+  instagram: String
+  tiktok: String
+  twitter: String
+}
+
+type Store {
+  banner: [Media]
+  brand: String
+  code: String
+  description: String
+  logo: Media
+  merchantTypeDetail: MerchantTypeDetail
+  name: String
+  operationalInfo: OperationalInfo
+  operationalStatus: OperationalStatus
+  operationalStore: OperationalStore
+  productSold: Int!
+  "Query products."
+  products(asc: Boolean = true, criteria: ProductCriteriaInput, limit: Int = 100, offset: Int = 0): [Product]
+  social: SocialInfo
+  store: String
+  storeCategories: [StoreCategories]
+  website: String
+  youtube: String
+}
+
+type StoreCategories {
+  categoryCode: String
+  categoryName: String
+  quantityProduct: Int!
+}
+
+type SuperProductSet {
+  active: Boolean!
+  category: Category
+  code: String
+  deleted: Boolean!
+  "ISO-8601"
+  end: DateTime
+  id: BigInteger
+  kind: ModelSetKind
+  name: String
+  productSets: [ExtendedProductSet]
+  "ISO-8601"
+  start: DateTime
+  status: ModelSetStatus
+}
+
+type TemplateChat {
+  template: String
+}
+
+type TemplateReview {
+  code: String
+  description: String
+  title: String
+}
+
+type TermCondition {
+  en: String
+  id: String
+}
+
+type TicketDetailStatus {
+  code: String
+  descEn: String
+  descId: String
+}
+
+type TypesenseCampaignSlotProductResponse {
+  available: Int!
+  campaignCode: String
+  "ISO-8601"
+  campaignEnd: Date
+  "ISO-8601"
+  campaignStart: Date
+  campaignTitle: String
+  code: String
+  maxPurchase: Int!
+  normal: BigDecimal
+  normalDiscount: BigDecimal
+  note: String
+  productCode: String
+  promo: BigDecimal
+  promoDiscount: BigDecimal
+  sessions: [Session]
+  setoko: BigDecimal
+  sold: Int!
+  status: CampaignSlotProductStatus
+  stock: Int!
+}
+
+type Verification {
+  code: String
+  email: String
+  emailSent: Int!
+  emailTries: Int!
+  "ISO-8601"
+  lastEmailAt: DateTime
+  "ISO-8601"
+  lastSmsAt: DateTime
+  mobile: String
+  otp: String
+  smsSent: Int!
+  smsTries: Int!
+}
+
+type WishList {
+  code: String
+  "ISO-8601"
+  createdAt: DateTime
+  items: [WishListItem]
+  name: String
+}
+
+type WishListItem {
+  "ISO-8601"
+  createdAt: DateTime
+  product: Product
+}
+
+enum AlloUserLevel {
+  ALLO_PAY
+  ALLO_PAY_PLUS
+  ALLO_PRIME
+}
+
+enum AttributeInputKind {
+  BOOLEAN
+  DATE
+  DATETIME
+  MULTISELECT
+  PRICE
+  SELECT
+  TEXT
+  TEXTAREA
+  UPLOAD
+  VISUAL_SWATCH
+  WEIGHT
+}
+
+enum AttributeKind {
+  DATE
+  DATETIME
+  DECIMAL
+  INT
+  TEXT
+  VARCHAR
+}
+
+enum BannerKind {
+  ALL
+  DESKTOP
+  MOBILE
+}
+
+enum BannerTargetKind {
+  BRD
+  CAT
+  PPG
+  PRD
+  STR
+  URL
+  URX
+}
+
+enum BusinessModelKind {
+  CONSIGNMENT
+  DIRECT_PURCHASE
+  ONLINE_MARKET
+}
+
+enum CampaignSlotProductStatus {
+  APPROVED
+  NEW
+  REJECTED
+  REVISION
+}
+
+enum CategoryType {
+  PRIMARY
+  SUB
+}
+
+enum CustomerMaritalKind {
+  IN_RELATIONSHIP
+  MARRIED
+  SINGLE
+}
+
+enum DocumentKind {
+  AGREEMENT
+  AP
+  HKI
+  KTP
+  KTP_SELFIE
+  NPWP
+  SBRT
+  SIUP
+  SKD
+  SKT
+  SPD
+  SPPKP
+  TDP
+}
+
+enum DocumentStatus {
+  APPROVED
+  NEW
+  REJECTED
+}
+
+enum FcmKind {
+  AND
+  IOS
+  WEB
+}
+
+enum FulfilmentKind {
+  OFFICIAL
+  PARTNER
+  SETOKO
+}
+
+enum GenderKind {
+  FEMALE
+  MALE
+  OTHERS
+}
+
+enum InstallationPriceStatus {
+  ACTIVE
+  APPROVE
+  EXPIRED
+  INACTIVE
+  PROCESS
+  REJECT
+  TEMPORARILY_INACTIVE
+}
+
+enum InstallationProductStatus {
+  ACTIVE
+  ARCHIVED
+  DELETED
+  NEW
+  REJECT
+  REJECT_ALL
+  REJECT_CHANGES
+  REJECT_NEWEST
+  REVIEW
+  REVISION
+  REVISION_CHANGES
+  REVISION_NEWEST
+}
+
+enum ManagedKind {
+  MANAGED_BY_FEMALE_DAILY
+  MANAGED_BY_SELLER
+}
+
+enum MediaKind {
+  DOC
+  DOCX
+  JPG
+  PDF
+  PNG
+  WEBP
+}
+
+enum MerchantBusinessKind {
+  AGENT
+  BRAND
+  CLINIC
+  DISTRIBUTOR
+  MODERN_RETAILER
+  NONE
+  OTHER
+  SOLE_DISTRIBUTOR
+  TREATMENT
+  UKM
+  UMKM
+}
+
+enum MerchantPartnershipKind {
+  ECOSYSTEM
+  SETOKO
+  SETOKO_PARTNER
+  SUPER_PARTNER
+  TRANSMART
+}
+
+enum MerchantPartnershipStatus {
+  BASIC
+  REJECTED_SUPER
+  REQUEST_SUPER
+  SUPER
+}
+
+enum MerchantStatus {
+  ACCEPTED
+  PENDING
+  REJECTED
+  REVIEW
+  REVISION
+}
+
+enum MerchantStepRegister {
+  FINAL
+  FOUR
+  ONE
+  THREE
+  TWO
+}
+
+enum MerchantTypeKind {
+  FEMALE_DAILY_STORE
+  OFFICIAL_SELLER
+  OFFICIAL_SELLER_BY_FEMALE_DAILY
+  REGULAR_SELLER
+}
+
+enum MerchantWizardState {
+  FINAL
+  ONE
+  THREE
+  TWO
+}
+
+enum ModelSetKind {
+  CAT
+  CMS
+}
+
+enum ModelSetStatus {
+  APPROVED
+  NEW
+  REJECTED
+}
+
+enum OfferKind {
+  CASHBACK
+  DISCOUNT
+  FREE_DELIVERY
+  GIFT_WRAP
+  GROUP_BUY
+  SUBSCRIPTION
+  WHOLESALE
+}
+
+enum OperationalStatus {
+  DAILY_CLOSED
+  HOLIDAY_MODE
+  INACTIVE
+  OPEN
+  PARTIALLY_CLOSED
+  PERMANENTLY_CLOSED
+}
+
+enum OsType {
+  ANDROID
+  IOS
+  OTHER
+}
+
+enum PriceFinalSource {
+  DEFAULT
+  PRICE
+  PROMOTION
+}
+
+enum PriceSource {
+  DEFAULT_PRICE
+  FLASH_SALE
+  PRODUCT_PRICE
+  PROMO_PRICE
+}
+
+enum ProductAvailability {
+  OUT_OF_STOCK
+  READY
+}
+
+enum ProductPriceStatus {
+  ACTIVE
+  APPROVE
+  EXPIRED
+  INACTIVE
+  PROCESS
+  REJECT
+  TEMPORARILY_INACTIVE
+}
+
+enum ProductStatus {
+  ACTIVE
+  APPROVED_SECOND_LAYER
+  ARCHIVED
+  DELETED
+  NEED_FIRST_APPROVED
+  NEED_REVISE_FIRST_LAYER
+  NEED_SECOND_APPROVED
+  NEW
+  PLACEHOLDER
+  REJECT
+  REJECT_ALL
+  REJECT_CHANGES
+  REVIEW
+  REVISION
+}
+
+enum ReviewStatus {
+  FEEDBACK
+  REVIEWED
+  UN_REVIEWED
+}
+
+enum ShippingKind {
+  CARGO
+  INSTANT
+  NEXT_DAY
+  REGULAR
+  SAME_DAY
+}
+
+"Scalar for BigDecimal"
+scalar BigDecimal
+
+"Scalar for BigInteger"
+scalar BigInteger
+
+"Scalar for Date"
+scalar Date
+
+"Scalar for DateTime"
+scalar DateTime
+
+"Scalar for Time"
+scalar Time
+
+input BannerSetCriteriaInput {
+  categoryCode: String
+  section: String
+}
+
+input BlogCriteriaInput {
+  language: String
+  status: Int!
+}
+
+input BrandCriteriaInput {
+  categoryCodes: [String]
+}
+
+input BrandSetCriteriaInput {
+  categoryCode: String
+  section: String
+}
+
+input BusinessHourDetailInput {
+  code: String
+  days: [DayInput]
+  id: BigInteger
+  "ISO-8601"
+  storeClosedTime: Time
+  "ISO-8601"
+  storeOpenedTime: Time
+  timezone: String
+}
+
+input BusinessHourInput {
+  details: [BusinessHourDetailInput]
+  greetingMessageOperationalActive: Boolean!
+  greetingMessageOutsideOperational: String
+}
+
+input CategorySetCriteriaInput {
+  categoryCode: String
+  section: String
+}
+
+input DayInput {
+  active: Boolean!
+  day: String
+}
+
+input DetailInput {
+  daysEn: String
+  daysId: String
+  hoursEn: String
+  hoursId: String
+}
+
+input DualLanguageInput {
+  en: String
+  id: String
+}
+
+input HighlightSetCriteriaInput {
+  section: String
+  status: ModelSetStatus
+}
+
+input HolidayModeInput {
+  "ISO-8601"
+  endDate: Date
+  greetingMessageHolidayMode: String
+  greetingMessageHolidayModeActive: Boolean!
+  "ISO-8601"
+  startDate: Date
+}
+
+input MediaInput {
+  filename: String
+  kind: MediaKind
+  url: String
+}
+
+input MerchantTypeDetailInput {
+  code: String
+  label: DualLanguageInput
+}
+
+input OperationalInfoInput {
+  descEn: String
+  descId: String
+  labelEn: String
+  labelId: String
+  titleEn: String
+  titleId: String
+}
+
+input OperationalStoreInput {
+  businessHours: BusinessHourInput
+  "ISO-8601"
+  createdAt: DateTime
+  greetingMessage: String
+  greetingMessageActive: Boolean!
+  holidayMode: HolidayModeInput
+  holidayModeActive: Boolean!
+  id: BigInteger
+  operationalView: OperationalViewInput
+  "ISO-8601"
+  updatedAt: DateTime
+}
+
+input OperationalViewInput {
+  businessHourView: [DetailInput]
+  dailyHolidayView: [DetailInput]
+}
+
+input ProductCriteriaInput {
+  categoryCode: String
+  code: String
+  fulfilmentKinds: [FulfilmentKind]
+  locationCodes: [String]
+  offerKinds: [OfferKind]
+  priceFrom: Int
+  priceTo: Int
+  primaryCategoryCodes: [String]
+  ratings: [Int]
+  shippingKinds: [ShippingKind]
+}
+
+input ProductSetCriteriaInput {
+  categoryCode: String
+  code: String
+  section: String
+  urlKey: String
+}
+
+input PromotionCriteriaInput {
+  categoryCode: String
+  key: String
+  option: String
+  sort: String
+  tagCode: String
+  urlKey: String
+}
+
+input QuoteItemCriteriaInput {
+  guestId: String
+}
+
+input SettingCriteriaInput {
+  code: String
+}
+
+input SocialInfoInput {
+  facebook: String
+  instagram: String
+  tiktok: String
+  twitter: String
+}
+
+input StoreCategoriesInput {
+  categoryCode: String
+  categoryName: String
+  quantityProduct: Int!
+}
+
+input StoreCriteriaInput {
+  code: String
+}
+
+input StoreInput {
+  banner: [MediaInput]
+  brand: String
+  code: String
+  description: String
+  logo: MediaInput
+  merchantTypeDetail: MerchantTypeDetailInput
+  name: String
+  operationalInfo: OperationalInfoInput
+  operationalStatus: OperationalStatus
+  operationalStore: OperationalStoreInput
+  productSold: Int!
+  social: SocialInfoInput
+  store: String
+  storeCategories: [StoreCategoriesInput]
+  website: String
+  youtube: String
+}

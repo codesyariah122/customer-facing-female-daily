@@ -1,0 +1,42 @@
+fragment brandSetbanner on BrandSet {
+  code
+  name
+  start
+  end
+  brands {
+    code
+    name
+    creativeName
+    bannerImage {
+      url
+      filename
+      kind
+    }
+    featuredBanner {
+      url
+      filename
+      kind
+    }
+    thumbnailBanner {
+      url
+      filename
+      kind
+    }
+    ordering
+    visible
+    featured
+    logo {
+      kind
+      filename
+      url
+    }
+  }
+}
+
+query getBrandpage {
+  brandPageBrandSet: brandSets(
+    criteria: { section: "Brands-Directory-Brand-Set" }
+  ) {
+    ...brandSetbanner
+  }
+}

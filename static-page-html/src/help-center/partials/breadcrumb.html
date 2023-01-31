@@ -1,0 +1,71 @@
+<nav id="breadcrumb" class="flex md:space-x-1 space-x-0 ml-4 md:ml-36 -mt-16 md:-mt-0" aria-label="Breadcrumb">
+  <ol class="item-nav inline-flex items-center space-x-0 md:space-x-3">
+    <li>
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <a onClick="backTo();document.querySelector('.left-menu').classList.remove('active-left-menu')" class="ml-1 text-sm font-medium text-red-600 hover:text-gray-900 cursor-pointer md:ml-2 dark:text-gray-400 dark:hover:text-white">Pusat Edukasi</a>
+      </div>
+    </li>
+    <li id="query-show" aria-current="page">
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <a id="query-page" class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 capitalize"></a>
+      </div>
+    </li>
+    <li aria-current="page">
+      <div class="flex items-center">
+        <i class="fa fa-chevron-right fa-fw fa-sm"></i>
+        <span id="current-page" class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 capitalize"></span>
+      </div>
+    </li>
+  </ol>
+</nav>
+
+
+<script type="text/javascript">
+  let newParam = null
+  switch(param) {
+    case 'delivery':
+      document.getElementById('current-page').textContent = param
+      document.getElementById('current-page').setAttribute('href', 'topics.html?q=delivery')
+      document.getElementById('query-show').style.visibility = 'hidden'
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: -2rem;')
+      }else{
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: -8rem;')
+        document.getElementById('item-nav').classList.add('w-full')
+      }
+      break;
+  }
+
+  if(subQuestionParam) {
+    if(subQuestionParam === 'delivery-method') {
+      document.getElementById('query-show').style.visibility = 'visible'
+      document.getElementById('query-page').textContent = param
+      document.getElementById('query-page').classList.add('text-red-600')
+      document.getElementById('query-page').setAttribute('href', `topics.html?q=${param}`)
+      document.getElementById('current-page').textContent = 'Delivery Method'
+
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: 6rem;')
+      }else{
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: -1rem;')
+        document.getElementById('item-nav').classList.add('w-full')
+      }
+    } else if(subQuestionParam === 'do-you-deliver-on-weekend-or-public-holidays') {
+      document.getElementById('query-show').style.visibility = 'visible'
+      document.getElementById('query-page').textContent = param
+      document.getElementById('query-page').classList.add('text-red-600')
+      document.getElementById('query-page').setAttribute('href', `topics.html?q=${param}`)
+      document.getElementById('current-page').textContent = "do you deliver on weekend or public holidays"
+      if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: 6rem;')
+      }else{
+        document.getElementById('breadcrumb').setAttribute('style', 'margin-left: 2rem;')
+        document.getElementById('item-nav').classList.add('w-full')
+      }
+    }
+  }
+
+
+</script>

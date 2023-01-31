@@ -1,0 +1,50 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**", ".next/**", "public/dist/**", "public/**"],
+      "dependsOn": ["^build"],
+      "env": [
+        "NEXT_PUBLIC_CORE_URL",
+        "NEXT_PUBLIC_GRAPHQL_ENDPOINT",
+        "NEXT_PUBLIC_GRAPHQL_SCHEMA",
+        "NEXT_PUBLIC_APP_ENVIRONMENT",
+        "NEXT_PUBLIC_FD_SSO_URL",
+        "NEXT_PUBLIC_PRODUCTION_URL",
+        "REVALIDATE_KEY",
+        "FEMALEDAILY_API_KEY",
+        "FEMALEDAILY_API_SECRET",
+        "NEXT_PUBLIC_GOOGLE_KEY",
+        "NEXT_PUBLIC_DISTRICT_URL",
+        "NEXT_PUBLIC_DUMMY_JWT"
+      ]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "clean:deep": {
+      "cache": false
+    },
+    "codegen": {
+      "cache": false
+    },
+    "types": {
+      "outputs": ["dist/**/*.d.ts"]
+    }
+  },
+  "globalDependencies": [".env"]
+}

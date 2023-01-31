@@ -1,0 +1,57 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css">
+
+<div class="grid grid-cols-2 justify-start span-x-4 ml-5 -mb-12">
+  <div class="col-span-full">
+    <h2 id="left-menu-title" class="text-3xl font-bold">Topics</h2>
+  </div>
+
+  <div class="col-span-full w-full h-36">
+    <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-black bg-transparent border-2 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 w-80" type="button">
+      <div class="flex justify-center place-content-between">
+        <div class="order-first">
+          Delivery
+        </div>
+        <div class="order-last ml-48">
+          <i class="fa fa-chevron-down fa-fw fa-lg"></i>
+        </div>
+      </div>
+    </button>
+    <!-- Dropdown menu -->
+    <div id="dropdown" class="hidden z-10 w-80 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Account</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Order</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Payment</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delivery</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Return & Refund</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Coupons & Promos</a>
+          </li>
+          <li>
+            <a href="topics.html?q=delivery" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Products & Services</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>

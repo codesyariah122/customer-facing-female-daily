@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="Seller Center">
+        <meta name="author" content="Female Daily">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css">
+        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="assets/style.css">
+    </head>
+    <body class="overflow-x-hidden">
+        <div class="container__header">
+            <div class="container__subheader">
+                <!-- Header content loaded -->
+                <div id="header-content"></div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main__content mb-28 mt-28">
+          <!-- Hero content loaded -->
+            <div id="hero-content"></div>
+
+            <!-- Card Content -->
+            <div class="container md:container content-center md:w-full w-80 md:py-16 py-12 md:mx-auto">
+                <div class="grid grid-cols-1 mb-3 heading__main-content">
+                    <h2 class="text-black font-bold text-3xl">Pilih topik pertanyaan Anda</h2>
+                </div>
+                <div class="flex justify-center md:gap-x-10 gap-x-4 place-items-center first__content-card">
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/profile.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                        </div>
+                        <div class="md:mt-3 mt-2">
+                            <h5>Akun Seller Center</h5>
+                        </div>
+                    </div>
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/menu.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                        </div>
+                        <div class="md:mt-3 mt-2">
+                            <h5>Order</h5>
+                        </div>
+                    </div>
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/box-outline.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                            <div class="md:mt-3 mt-2">
+                                <h5>Return & Refund</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/package-outline.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                            <div class="md:mt-3 mt-2">
+                                <h5>Product</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center md:gap-x-10 lg:gap-x-10 gap-x-4 place-items-center second__content-card">
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/percent.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                        </div>
+                        <div class="md:mt-3 mt-2">
+                            <h5>Promotion</h5>
+                        </div>
+                    </div>
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/box-inventory.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                        </div>
+                        <div class="md:mt-3 mt-2">
+                            <h5>Inventory</h5>
+                        </div>
+                    </div>
+                    <div onClick="redirectPage('product')" class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5">
+                            <img src="../assets/images/helpcenter/icon-box/settings.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                            <div class="md:mt-3 mt-2">
+                                <h5>Settings</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content md:w-36 md:h-36 h-24 relative rounded-2xl md:rounded-3xl shadow-lg cursor-pointer">
+                        <div class="md:mt-10 mt-5" data-modal-toggle="defaultModal">
+                            <img src="../assets/images/helpcenter/icon-box/cube.svg" alt="" class="max-w-none ring-0 md:w-8 w-8">
+                            <div class="md:mt-3 mt-2">
+                                <h5>Lihat Semua Topik</h5>
+                            </div>
+                        </div>
+                        <!-- popup -->
+                        <div
+                            id="defaultModal"
+                            tabindex="-1"
+                            aria-hidden="true"
+                            class="hidden overflow-y-auto overflow-x-hidden fixed md:top-0 top-12 right-0 left-0 z-50 md:p-4 w-full md:inset-0 h-modal md:h-full h-full -mt-8 md:-mt-0">
+                            <div class="relative w-full max-w-2xl md:h-80">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <!-- Modal header -->
+                                    <div class="flex justify-between items-center p-4 rounded-t">
+                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                                            <svg
+                                                aria-hidden="true"
+                                                class="w-5 h-5"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-6 space-y-6">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white -mt-12">
+                                            Lihat Semua Topik
+                                        </h3>
+                                        <!-- Dom Modal Content -->
+                                        <div id="card-list-topic"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End card content -->
+
+            <!-- topic contents -->
+            <div class="md:mt-12 mt-4 h-full md:bg-gray-100 md:-mb-28 -mb-28 topic__collapse-content">
+                <div class="grid grid-cols-1 md:py-12">
+                    <h4 class="text-black font-bold md:text-3xl text-1xl">Pertanyaan Populer</h4>
+                </div>
+                <div class="flex justify-center md:gap-x-10 gap-x-8 place-items-end collapse--list-content">
+                    <ul class="bg-transparent rounded-lg text-gray-900 md:w-6/12 md:-mt-12 md:mb-12 w-80">
+                        <li
+                            id="accordion-flush"
+                            class="px-0 w-full py-2 rounded-t-lg"
+                            data-accordion="collapse"
+                            show-open="false"
+                            data-active-classes="bg-transparent dark:bg-gray-900"
+                            data-inactive-classes="text-gray-500 dark:text-gray-400"
+                        >
+                            <h2 id="accordion-flush-heading-1">
+                                <button
+                                    type="button"
+                                    class="flex items-center justify-between w-full py-2 font-medium text-left border-b border-gray-200 dark:border-gray-700"
+                                    data-accordion-target="#accordion-flush-body-1"
+                                    aria-expanded="false"
+                                    aria-controls="accordion-flush-body-1"
+                                >
+                                    <span>apa itu respon person?</span>
+                                    <i data-accordion-icon class="fa fa-fw fa-lg fa fa-chevron-circle-down text-gray-400"></i>
+                                </button>
+                            </h2>
+                            <div id="accordion-flush-body-1" class="hidden justify-center" aria-labelledby="accordion-flush-heading-1">
+                                <div class="py-5 font-light border-b border-gray-200 dark:border-gray-700">
+                                    <p class="mb-2 text-gray-500 text-left dark:text-gray-400">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li
+                            id="accordion-flush"
+                            class="px-0 py-2 w-full rounded-t-lg"
+                            data-accordion="open"
+                            show-open="true"
+                            data-active-classes="bg-transparent dark:bg-gray-900"
+                            data-inactive-classes="text-gray-500 dark:text-gray-400"
+                        >
+                            <h2 id="accordion-flush-heading-1">
+                                <button
+                                    type="button"
+                                    class="flex items-center justify-between w-full py-2 font-medium text-left border-b border-gray-200 dark:border-gray-700"
+                                    data-accordion-target="#accordion-flush-body-2"
+                                    aria-expanded="true"
+                                    aria-controls="accordion-flush-body-2"
+                                >
+                                    <span>kapan batas autocancel order (instant dan same-day)?</span>
+                                    <i data-accordion-icon class="fa fa-fw fa-lg fa fa-chevron-circle-down text-gray-400"></i>
+                                </button>
+                            </h2>
+                            <div id="accordion-flush-body-2" class="hidden align-middle justify-center w-full" aria-labelledby="accordion-flush-heading-1">
+                                <div class="md:py-5 py-2 pb-8 font-light border-b border-gray-200 dark:border-gray-700">
+                                    <p class="mb-2 text-gray-500 text-left dark:text-gray-400 md:w-full w-80">
+                                        Batas waktu Seller untuk memproses pesanan Instant/Same-day yang masuk sebelum pukul 12.00 WIB adalah pukul 23.59 WIB di hari yang sama.
+                                    </p>
+                                    <a href="#" style="color: red;" class="font-semibold align-text-bottom float-right hover:bg-gray-300">Selanjutnya</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="px-0 py-2 w-full rounded-t-lg border-0 border-b-2">
+                            <div class="flex justify-between gap-x-36">
+                                <div>
+                                    apa itu broadcast chat?
+                                </div>
+                                <div>
+                                    <i class="fa fa-fw fa-lg fa fa-chevron-circle-down text-gray-400"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="px-0 py-2 w-full rounded-t-lg border-0 border-b-2">
+                            <div class="flex justify-between gap-x-36">
+                                <div>
+                                    Bagaimana cara ubah alamat pengembalian?
+                                </div>
+                                <div>
+                                    <i class="fa fa-fw fa-lg fa fa-chevron-circle-down text-gray-400"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="px-0 py-2 w-full rounded-t-lg border-0 border-b-2">
+                            <div class="flex justify-between gap-x-36">
+                                <div>
+                                    Berapa nilai store performance toko yang ideal?
+                                </div>
+                                <div>
+                                    <i class="fa fa-fw fa-lg fa fa-chevron-circle-down text-gray-400"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End topic content -->
+
+        <!-- Footer content loaded -->
+        <div id="footer-content"></div>
+
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="assets/script/data.js"></script>
+        <script src="assets/script/functions.js"></script>
+        <script src="assets/script/app.js"></script>
+        <script src="assets/script/popup.js"></script>
+        <script src="assets/partials.js"></script>
+    </body>
+</html>

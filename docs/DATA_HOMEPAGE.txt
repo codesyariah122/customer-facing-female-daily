@@ -1,0 +1,12 @@
+[HOMEPAGE]
+
+1. Homepage Categories
+2. Flashsale Homepage
+3. Highlight Set
+4. Product Set
+5. Banner Set (USP)
+6. Product Matches (Baru) - Product Set
+7. Brands Set
+8. homepagePromotion
+9. Re-order past purchases (muncul saat login)
+10. Super Product Set
